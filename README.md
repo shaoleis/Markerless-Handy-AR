@@ -1,21 +1,15 @@
 # MarkerlessAR
 Advanced CV App final project
+## Timeline Table
+|Timeline| Task  | Name
+|:-:|:-:|:-:|
+|11.20|Fingertips Tracking|Miao Liu|
+|11.21|Coordinate reconstruction based on Camera Pose Estimation|Shuai Cui|
+|11.23|Combination between hand detection and AR visualization|Shaolei Shen|
+|12.01|Object Rendering with Finger gesture|Shuai Cui|
+|11.28|Finger gesture recognition|Miao Liu|
+|12.01|Experiment and comparison with ARToolkit|Shuai Cui|
+|12.02|UI Design|Shaolei Shen|
+|12.04|Robustness Improvement|Miao Liu|
 
-
-Timeline
-Task
-11.20 (Miao Liu)
-Fingertips Tracking
-11.27
-Coordinate reconstruction based on Camera Pose Estimation
-11.23
-Combination between hand detection and AR visualization
-11.28 
-Finger gesture recognition 
-12.01
-Experiment and comparison with ARToolkit
-12.02
-UI Design
-12.04 (Miao Liu)
-Improve robustness
 
