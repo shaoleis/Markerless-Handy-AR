@@ -6,6 +6,7 @@
 |11.20|Fingertips Tracking|Miao Liu|
 |11.20|Camera Pose Estimation|Shuai Cui|
 |11.20|AR with scale changing|Shaolei Shen|
+|11.22|Real-time hand tracking and segmentation|Miao Liu|
 |11.24|Finger gesture recognition|Miao Liu|
 |11.24|Coordinate reconstruction based on camera pose|Shuai Cui|
 |11.24|AR without ARToolKit|Shaolei Shen|
