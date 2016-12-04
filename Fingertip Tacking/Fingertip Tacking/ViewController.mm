@@ -13,6 +13,7 @@
 #include "opencv2/features2d/features2d.hpp"
 #include "opencv2/nonfree/features2d.hpp"
 #include <opencv2/opencv.hpp>
+#include <stdlib.h>
 #include <iostream>
 #endif
 
@@ -143,11 +144,11 @@
                 double angle = std::atan2(center.y - p1.y, center.x - p1.x) * 180 / CV_PI;
                 double inAngle = innerAngle(p1.x, p1.y, p2.x, p2.y, p3.x, p3.y);
                 double length = std::sqrt(std::pow(p1.x - p3.x, 2) + std::pow(p1.y - p3.y, 2));
+                t = validPoints.size();
                 
-                
-                if (angle > 30 && angle < 160 && std::abs(inAngle) > 20 && std::abs(inAngle) < 80 && length > 0.1 * boundingBox.height)
+                if (angle > 0 && angle < 179 && std::abs(inAngle) > 20 && std::abs(inAngle) < 80 && length > 0.1 * boundingBox.height)
                 {
-                    t = validPoints.size();
+                    
                     if (t>0)
                     {
                         if(Edist(validPoints.at(t-1).x,validPoints.at(t-1).y,p1.x,p1.y)>1000)
@@ -160,7 +161,17 @@
                         validPoints.push_back(p1);
                     }
                 }
-                
+                if (angle <30 && std::abs(inAngle) <30 && angle >-30)
+                {
+                    
+                    if (t>0)
+                    {
+                        if(Edist(validPoints.at(t-1).x,validPoints.at(t-1).y,p1.x,p1.y)>1000)
+                        {
+                            validPoints.push_back(p1);
+                        }
+                    }
+                }
             }
             
             for (size_t i = 0; i < validPoints.size(); i++)
