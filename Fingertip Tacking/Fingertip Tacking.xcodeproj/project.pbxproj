@@ -1,0 +1,581 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4FDB46321DF396ED00FFC9AB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FDB46311DF396ED00FFC9AB /* main.m */; };
+		4FDB46351DF396ED00FFC9AB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FDB46341DF396ED00FFC9AB /* AppDelegate.m */; };
+		4FDB46381DF396ED00FFC9AB /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4FDB46371DF396ED00FFC9AB /* ViewController.mm */; };
+		4FDB463B1DF396EE00FFC9AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FDB46391DF396EE00FFC9AB /* Main.storyboard */; };
+		4FDB463D1DF396EE00FFC9AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FDB463C1DF396EE00FFC9AB /* Assets.xcassets */; };
+		4FDB46401DF396EE00FFC9AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FDB463E1DF396EE00FFC9AB /* LaunchScreen.storyboard */; };
+		4FDB464B1DF396EE00FFC9AB /* Fingertip_TackingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FDB464A1DF396EE00FFC9AB /* Fingertip_TackingTests.m */; };
+		4FDB46561DF396EE00FFC9AB /* Fingertip_TackingUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FDB46551DF396EE00FFC9AB /* Fingertip_TackingUITests.m */; };
+		4FDB46641DF3973700FFC9AB /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FDB46631DF3973700FFC9AB /* opencv2.framework */; };
+		4FDB46661DF3981500FFC9AB /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FDB46651DF3981500FFC9AB /* AVFoundation.framework */; };
+		4FDB46681DF3982200FFC9AB /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FDB46671DF3982200FFC9AB /* CoreMedia.framework */; };
+		4FDB466A1DF3982E00FFC9AB /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FDB46691DF3982E00FFC9AB /* AssetsLibrary.framework */; };
+		4FDB466C1DF3983A00FFC9AB /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FDB466B1DF3983A00FFC9AB /* Accelerate.framework */; };
+		4FDB466E1DF3984400FFC9AB /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FDB466D1DF3984400FFC9AB /* CoreVideo.framework */; };
+		4FDB46701DF3984F00FFC9AB /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FDB466F1DF3984F00FFC9AB /* CoreImage.framework */; };
+		4FDB46721DF3985C00FFC9AB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FDB46711DF3985C00FFC9AB /* QuartzCore.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4FDB46471DF396EE00FFC9AB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4FDB46251DF396ED00FFC9AB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4FDB462C1DF396ED00FFC9AB;
+			remoteInfo = "Fingertip Tacking";
+		};
+		4FDB46521DF396EE00FFC9AB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4FDB46251DF396ED00FFC9AB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4FDB462C1DF396ED00FFC9AB;
+			remoteInfo = "Fingertip Tacking";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4FDB462D1DF396ED00FFC9AB /* Fingertip Tacking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fingertip Tacking.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4FDB46311DF396ED00FFC9AB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4FDB46331DF396ED00FFC9AB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		4FDB46341DF396ED00FFC9AB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		4FDB46361DF396ED00FFC9AB /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		4FDB46371DF396ED00FFC9AB /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
+		4FDB463A1DF396EE00FFC9AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4FDB463C1DF396EE00FFC9AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4FDB463F1DF396EE00FFC9AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4FDB46411DF396EE00FFC9AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4FDB46461DF396EE00FFC9AB /* Fingertip TackingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Fingertip TackingTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4FDB464A1DF396EE00FFC9AB /* Fingertip_TackingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Fingertip_TackingTests.m; sourceTree = "<group>"; };
+		4FDB464C1DF396EE00FFC9AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4FDB46511DF396EE00FFC9AB /* Fingertip TackingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Fingertip TackingUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4FDB46551DF396EE00FFC9AB /* Fingertip_TackingUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Fingertip_TackingUITests.m; sourceTree = "<group>"; };
+		4FDB46571DF396EE00FFC9AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4FDB46631DF3973700FFC9AB /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
+		4FDB46651DF3981500FFC9AB /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
+		4FDB46671DF3982200FFC9AB /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreMedia.framework; sourceTree = DEVELOPER_DIR; };
+		4FDB46691DF3982E00FFC9AB /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/AssetsLibrary.framework; sourceTree = DEVELOPER_DIR; };
+		4FDB466B1DF3983A00FFC9AB /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/Accelerate.framework; sourceTree = DEVELOPER_DIR; };
+		4FDB466D1DF3984400FFC9AB /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreVideo.framework; sourceTree = DEVELOPER_DIR; };
+		4FDB466F1DF3984F00FFC9AB /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreImage.framework; sourceTree = DEVELOPER_DIR; };
+		4FDB46711DF3985C00FFC9AB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4FDB462A1DF396ED00FFC9AB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4FDB46721DF3985C00FFC9AB /* QuartzCore.framework in Frameworks */,
+				4FDB46681DF3982200FFC9AB /* CoreMedia.framework in Frameworks */,
+				4FDB46661DF3981500FFC9AB /* AVFoundation.framework in Frameworks */,
+				4FDB46701DF3984F00FFC9AB /* CoreImage.framework in Frameworks */,
+				4FDB466C1DF3983A00FFC9AB /* Accelerate.framework in Frameworks */,
+				4FDB46641DF3973700FFC9AB /* opencv2.framework in Frameworks */,
+				4FDB466A1DF3982E00FFC9AB /* AssetsLibrary.framework in Frameworks */,
+				4FDB466E1DF3984400FFC9AB /* CoreVideo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4FDB46431DF396EE00FFC9AB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4FDB464E1DF396EE00FFC9AB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4FDB46241DF396ED00FFC9AB = {
+			isa = PBXGroup;
+			children = (
+				4FDB46711DF3985C00FFC9AB /* QuartzCore.framework */,
+				4FDB466F1DF3984F00FFC9AB /* CoreImage.framework */,
+				4FDB466D1DF3984400FFC9AB /* CoreVideo.framework */,
+				4FDB466B1DF3983A00FFC9AB /* Accelerate.framework */,
+				4FDB46691DF3982E00FFC9AB /* AssetsLibrary.framework */,
+				4FDB46671DF3982200FFC9AB /* CoreMedia.framework */,
+				4FDB46651DF3981500FFC9AB /* AVFoundation.framework */,
+				4FDB462F1DF396ED00FFC9AB /* Fingertip Tacking */,
+				4FDB46491DF396EE00FFC9AB /* Fingertip TackingTests */,
+				4FDB46541DF396EE00FFC9AB /* Fingertip TackingUITests */,
+				4FDB462E1DF396ED00FFC9AB /* Products */,
+				4FDB46631DF3973700FFC9AB /* opencv2.framework */,
+			);
+			sourceTree = "<group>";
+		};
+		4FDB462E1DF396ED00FFC9AB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4FDB462D1DF396ED00FFC9AB /* Fingertip Tacking.app */,
+				4FDB46461DF396EE00FFC9AB /* Fingertip TackingTests.xctest */,
+				4FDB46511DF396EE00FFC9AB /* Fingertip TackingUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4FDB462F1DF396ED00FFC9AB /* Fingertip Tacking */ = {
+			isa = PBXGroup;
+			children = (
+				4FDB46331DF396ED00FFC9AB /* AppDelegate.h */,
+				4FDB46341DF396ED00FFC9AB /* AppDelegate.m */,
+				4FDB46361DF396ED00FFC9AB /* ViewController.h */,
+				4FDB46371DF396ED00FFC9AB /* ViewController.mm */,
+				4FDB46391DF396EE00FFC9AB /* Main.storyboard */,
+				4FDB463C1DF396EE00FFC9AB /* Assets.xcassets */,
+				4FDB463E1DF396EE00FFC9AB /* LaunchScreen.storyboard */,
+				4FDB46411DF396EE00FFC9AB /* Info.plist */,
+				4FDB46301DF396ED00FFC9AB /* Supporting Files */,
+			);
+			path = "Fingertip Tacking";
+			sourceTree = "<group>";
+		};
+		4FDB46301DF396ED00FFC9AB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4FDB46311DF396ED00FFC9AB /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4FDB46491DF396EE00FFC9AB /* Fingertip TackingTests */ = {
+			isa = PBXGroup;
+			children = (
+				4FDB464A1DF396EE00FFC9AB /* Fingertip_TackingTests.m */,
+				4FDB464C1DF396EE00FFC9AB /* Info.plist */,
+			);
+			path = "Fingertip TackingTests";
+			sourceTree = "<group>";
+		};
+		4FDB46541DF396EE00FFC9AB /* Fingertip TackingUITests */ = {
+			isa = PBXGroup;
+			children = (
+				4FDB46551DF396EE00FFC9AB /* Fingertip_TackingUITests.m */,
+				4FDB46571DF396EE00FFC9AB /* Info.plist */,
+			);
+			path = "Fingertip TackingUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4FDB462C1DF396ED00FFC9AB /* Fingertip Tacking */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4FDB465A1DF396EE00FFC9AB /* Build configuration list for PBXNativeTarget "Fingertip Tacking" */;
+			buildPhases = (
+				4FDB46291DF396ED00FFC9AB /* Sources */,
+				4FDB462A1DF396ED00FFC9AB /* Frameworks */,
+				4FDB462B1DF396ED00FFC9AB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Fingertip Tacking";
+			productName = "Fingertip Tacking";
+			productReference = 4FDB462D1DF396ED00FFC9AB /* Fingertip Tacking.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4FDB46451DF396EE00FFC9AB /* Fingertip TackingTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4FDB465D1DF396EE00FFC9AB /* Build configuration list for PBXNativeTarget "Fingertip TackingTests" */;
+			buildPhases = (
+				4FDB46421DF396EE00FFC9AB /* Sources */,
+				4FDB46431DF396EE00FFC9AB /* Frameworks */,
+				4FDB46441DF396EE00FFC9AB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4FDB46481DF396EE00FFC9AB /* PBXTargetDependency */,
+			);
+			name = "Fingertip TackingTests";
+			productName = "Fingertip TackingTests";
+			productReference = 4FDB46461DF396EE00FFC9AB /* Fingertip TackingTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		4FDB46501DF396EE00FFC9AB /* Fingertip TackingUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4FDB46601DF396EE00FFC9AB /* Build configuration list for PBXNativeTarget "Fingertip TackingUITests" */;
+			buildPhases = (
+				4FDB464D1DF396EE00FFC9AB /* Sources */,
+				4FDB464E1DF396EE00FFC9AB /* Frameworks */,
+				4FDB464F1DF396EE00FFC9AB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4FDB46531DF396EE00FFC9AB /* PBXTargetDependency */,
+			);
+			name = "Fingertip TackingUITests";
+			productName = "Fingertip TackingUITests";
+			productReference = 4FDB46511DF396EE00FFC9AB /* Fingertip TackingUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4FDB46251DF396ED00FFC9AB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = "刘淼";
+				TargetAttributes = {
+					4FDB462C1DF396ED00FFC9AB = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 6MRNLXPH2J;
+						ProvisioningStyle = Automatic;
+					};
+					4FDB46451DF396EE00FFC9AB = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 5ZYUFUA72M;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 4FDB462C1DF396ED00FFC9AB;
+					};
+					4FDB46501DF396EE00FFC9AB = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 5ZYUFUA72M;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 4FDB462C1DF396ED00FFC9AB;
+					};
+				};
+			};
+			buildConfigurationList = 4FDB46281DF396ED00FFC9AB /* Build configuration list for PBXProject "Fingertip Tacking" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4FDB46241DF396ED00FFC9AB;
+			productRefGroup = 4FDB462E1DF396ED00FFC9AB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4FDB462C1DF396ED00FFC9AB /* Fingertip Tacking */,
+				4FDB46451DF396EE00FFC9AB /* Fingertip TackingTests */,
+				4FDB46501DF396EE00FFC9AB /* Fingertip TackingUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4FDB462B1DF396ED00FFC9AB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4FDB46401DF396EE00FFC9AB /* LaunchScreen.storyboard in Resources */,
+				4FDB463D1DF396EE00FFC9AB /* Assets.xcassets in Resources */,
+				4FDB463B1DF396EE00FFC9AB /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4FDB46441DF396EE00FFC9AB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4FDB464F1DF396EE00FFC9AB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4FDB46291DF396ED00FFC9AB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4FDB46381DF396ED00FFC9AB /* ViewController.mm in Sources */,
+				4FDB46351DF396ED00FFC9AB /* AppDelegate.m in Sources */,
+				4FDB46321DF396ED00FFC9AB /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4FDB46421DF396EE00FFC9AB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4FDB464B1DF396EE00FFC9AB /* Fingertip_TackingTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4FDB464D1DF396EE00FFC9AB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4FDB46561DF396EE00FFC9AB /* Fingertip_TackingUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4FDB46481DF396EE00FFC9AB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4FDB462C1DF396ED00FFC9AB /* Fingertip Tacking */;
+			targetProxy = 4FDB46471DF396EE00FFC9AB /* PBXContainerItemProxy */;
+		};
+		4FDB46531DF396EE00FFC9AB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4FDB462C1DF396ED00FFC9AB /* Fingertip Tacking */;
+			targetProxy = 4FDB46521DF396EE00FFC9AB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		4FDB46391DF396EE00FFC9AB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4FDB463A1DF396EE00FFC9AB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4FDB463E1DF396EE00FFC9AB /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4FDB463F1DF396EE00FFC9AB /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4FDB46581DF396EE00FFC9AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4FDB46591DF396EE00FFC9AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4FDB465B1DF396EE00FFC9AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 6MRNLXPH2J;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = "Fingertip Tacking/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "-6623.Fingertip-Tacking-miail1";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		4FDB465C1DF396EE00FFC9AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 6MRNLXPH2J;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = "Fingertip Tacking/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "-6623.Fingertip-Tacking-miail1";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		4FDB465E1DF396EE00FFC9AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 5ZYUFUA72M;
+				INFOPLIST_FILE = "Fingertip TackingTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "-6623.Fingertip-TackingTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Fingertip Tacking.app/Fingertip Tacking";
+			};
+			name = Debug;
+		};
+		4FDB465F1DF396EE00FFC9AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 5ZYUFUA72M;
+				INFOPLIST_FILE = "Fingertip TackingTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "-6623.Fingertip-TackingTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Fingertip Tacking.app/Fingertip Tacking";
+			};
+			name = Release;
+		};
+		4FDB46611DF396EE00FFC9AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 5ZYUFUA72M;
+				INFOPLIST_FILE = "Fingertip TackingUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "-6623.Fingertip-TackingUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Fingertip Tacking";
+			};
+			name = Debug;
+		};
+		4FDB46621DF396EE00FFC9AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 5ZYUFUA72M;
+				INFOPLIST_FILE = "Fingertip TackingUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "-6623.Fingertip-TackingUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Fingertip Tacking";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4FDB46281DF396ED00FFC9AB /* Build configuration list for PBXProject "Fingertip Tacking" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4FDB46581DF396EE00FFC9AB /* Debug */,
+				4FDB46591DF396EE00FFC9AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4FDB465A1DF396EE00FFC9AB /* Build configuration list for PBXNativeTarget "Fingertip Tacking" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4FDB465B1DF396EE00FFC9AB /* Debug */,
+				4FDB465C1DF396EE00FFC9AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		4FDB465D1DF396EE00FFC9AB /* Build configuration list for PBXNativeTarget "Fingertip TackingTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4FDB465E1DF396EE00FFC9AB /* Debug */,
+				4FDB465F1DF396EE00FFC9AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		4FDB46601DF396EE00FFC9AB /* Build configuration list for PBXNativeTarget "Fingertip TackingUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4FDB46611DF396EE00FFC9AB /* Debug */,
+				4FDB46621DF396EE00FFC9AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4FDB46251DF396ED00FFC9AB /* Project object */;
+}

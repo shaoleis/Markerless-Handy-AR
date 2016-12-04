@@ -100,18 +100,22 @@ cv::Mat imagearray[5];
     UIImageToMat(image, cvImage);
     cv::Mat hsv;
     cv::cvtColor(cvImage, hsv, CV_BGR2HSV);
+    //coarse segmentation
     cv::inRange(hsv, cv::Scalar(minH, minS, minV), cv::Scalar(maxH, maxS, maxV), hsv);
     
     int blurSize = 5;
     int elementSize = 3;
+    //process
     cv::medianBlur(hsv, hsv, blurSize);
     cv::Mat element = cv::getStructuringElement(cv::MORPH_ELLIPSE, cv::Size(2 * elementSize + 1, 2 * elementSize + 1), cv::Point(elementSize, elementSize));
     cv::dilate(hsv, hsv, element);
     
     std::vector<std::vector<cv::Point> > contours;
     std::vector<cv::Vec4i> hierarchy;
+    //find countour
     cv::findContours(hsv, contours, hierarchy, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_SIMPLE, cv::Point(0, 0));
     size_t largestContour = 0;
+    //find hand contour
     for (size_t i = 1; i < contours.size(); i++)
     {
         if (cv::contourArea(contours[i]) > cv::contourArea(contours[largestContour]))
@@ -142,12 +146,13 @@ cv::Mat imagearray[5];
                 cv::Point p1 = contours[largestContour][convexityDefects[i][0]];
                 cv::Point p2 = contours[largestContour][convexityDefects[i][1]];
                 cv::Point p3 = contours[largestContour][convexityDefects[i][2]];
-                //cv::line(cvImage, p1, p3, cv::Scalar(0, 0, 255), 2);
-                //cv::line(cvImage, p3, p2, cv::Scalar(0, 0, 255), 2);
-                double angle = std::atan2(center.y - p1.y, center.x - p1.x) * 180 / CV_PI;
+                cv::line(cvImage, center, p1, cv::Scalar(255, 0, 0), 2);
+                cv::line(cvImage, p1, p3, cv::Scalar(0, 0, 255), 2);
+                cv::line(cvImage, p3, p2, cv::Scalar(0, 0, 255), 2);
+                double angle = std::atan2(p1.y-center.y, p1.x-center.x )* 180 / CV_PI;
                 double inAngle = innerAngle(p1.x, p1.y, p2.x, p2.y, p3.x, p3.y);
                 double length = std::sqrt(std::pow(p1.x - p3.x, 2) + std::pow(p1.y - p3.y, 2));
-                if (angle > 30 && angle < 160 && std::abs(inAngle) > 20 && std::abs(inAngle) < 120 && length > 0.1 * boundingBox.height)
+                if (angle > 30 && angle < 160 && std::abs(inAngle) > 10 && std::abs(inAngle) < 120 && length > 0.1 * boundingBox.height)
                 {
                     validPoints.push_back(p1);
                 }
@@ -167,7 +172,7 @@ cv::Mat imagearray[5];
 
     
     resultView_.hidden = false; // Turn the hidden view on
-    UIImage *resImage = MatToUIImage(cvImage);
+    UIImage *resImage = MatToUIImage(hsv);
         
     // Special part to ensure the image is rotated properly when the image is converted back
     resultView_.image =  [UIImage imageWithCGImage:[resImage CGImage]
