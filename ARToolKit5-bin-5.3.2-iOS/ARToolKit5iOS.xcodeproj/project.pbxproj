@@ -203,7 +203,7 @@
 		4A2F72F4117840A600F35FA7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A1822E10DC97C2700B73A53 /* Foundation.framework */; };
 		4A2F72F5117840A600F35FA7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A1822E50DC97C2700B73A53 /* UIKit.framework */; };
 		4A2F7313117841F000F35FA7 /* ARApp2Delegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F73061178414800F35FA7 /* ARApp2Delegate.m */; };
-		4A2F7315117841F000F35FA7 /* ARViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F730A1178414800F35FA7 /* ARViewController.m */; };
+		4A2F7315117841F000F35FA7 /* ARViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F730A1178414800F35FA7 /* ARViewController.mm */; };
 		4A2F7317117841F000F35FA7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F73101178414800F35FA7 /* main.m */; };
 		4A2F73A71178455100F35FA7 /* Data2 in Resources */ = {isa = PBXBuildFile; fileRef = 4A2F734C1178455100F35FA7 /* Data2 */; };
 		4A311CF6119C95F6004E0867 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AC2E636118ED63E00CC4F55 /* AVFoundation.framework */; settings = {ATTRIBUTES = (Required, ); }; };
@@ -925,6 +925,10 @@
 		4AF9712B1B5F5709001BFEB5 /* timers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4AF9706A1B5F5708001BFEB5 /* timers.cpp */; };
 		4AF9712D1B5F5709001BFEB5 /* freak.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4AF970771B5F5708001BFEB5 /* freak.cpp */; };
 		4AF9712E1B5F5709001BFEB5 /* hough_similarity_voting.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4AF9707A1B5F5708001BFEB5 /* hough_similarity_voting.cpp */; };
+		6C11235D1DF4EAFC006A334F /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C11235C1DF4EAFC006A334F /* opencv2.framework */; };
+		6C11235E1DF4EAFC006A334F /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C11235C1DF4EAFC006A334F /* opencv2.framework */; };
+		6C1123601DF4F5C5006A334F /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C11235F1DF4F5C5006A334F /* opencv2.framework */; };
+		6C1123611DF4F5C5006A334F /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C11235F1DF4F5C5006A334F /* opencv2.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1723,7 +1727,7 @@
 		4A2F73051178414800F35FA7 /* ARApp2Delegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARApp2Delegate.h; sourceTree = "<group>"; };
 		4A2F73061178414800F35FA7 /* ARApp2Delegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARApp2Delegate.m; sourceTree = "<group>"; };
 		4A2F73091178414800F35FA7 /* ARViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARViewController.h; sourceTree = "<group>"; };
-		4A2F730A1178414800F35FA7 /* ARViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ARViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		4A2F730A1178414800F35FA7 /* ARViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; lineEnding = 0; path = ARViewController.mm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		4A2F730C1178414800F35FA7 /* dist.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = dist.plist; sourceTree = "<group>"; };
 		4A2F730F1178414800F35FA7 /* Iris.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Iris.png; sourceTree = "<group>"; };
 		4A2F73101178414800F35FA7 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -3296,6 +3300,8 @@
 		4AF9711E1B5F5709001BFEB5 /* point.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = point.h; sourceTree = "<group>"; };
 		4AF9711F1B5F5709001BFEB5 /* kpmPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kpmPrivate.h; sourceTree = "<group>"; };
 		4AF9714D1B5F58A6001BFEB5 /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		6C11235C1DF4EAFC006A334F /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
+		6C11235F1DF4F5C5006A334F /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
 		78BB3E5E08E482F400D7CA2D /* arMultiFreeConfig.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; path = arMultiFreeConfig.c; sourceTree = "<group>"; };
 		78BB3E5F08E482F400D7CA2D /* arMultiGetTransMat.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; path = arMultiGetTransMat.c; sourceTree = "<group>"; };
 		78BB3E6008E482F400D7CA2D /* arMultiGetTransMatStereo.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; path = arMultiGetTransMatStereo.c; sourceTree = "<group>"; };
@@ -3497,6 +3503,7 @@
 				4A2F72F4117840A600F35FA7 /* Foundation.framework in Frameworks */,
 				4A2F72F5117840A600F35FA7 /* UIKit.framework in Frameworks */,
 				4A311CF6119C95F6004E0867 /* AVFoundation.framework in Frameworks */,
+				6C11235E1DF4EAFC006A334F /* opencv2.framework in Frameworks */,
 				4A311CF7119C95F7004E0867 /* CoreMedia.framework in Frameworks */,
 				4A311CF8119C95F7004E0867 /* CoreVideo.framework in Frameworks */,
 				4A941D221AE5DCDF000FA802 /* libAR.a in Frameworks */,
@@ -3761,6 +3768,7 @@
 				4AEAEBD617A744AA00F61E33 /* CoreGraphics.framework in Frameworks */,
 				4AEAEBD717A744AA00F61E33 /* OpenGLES.framework in Frameworks */,
 				4AEAEBD817A744AA00F61E33 /* Foundation.framework in Frameworks */,
+				6C1123611DF4F5C5006A334F /* opencv2.framework in Frameworks */,
 				4AEAEBD917A744AA00F61E33 /* UIKit.framework in Frameworks */,
 				4AEAEBDA17A744AA00F61E33 /* AVFoundation.framework in Frameworks */,
 				4AEAEBDB17A744AA00F61E33 /* CoreMedia.framework in Frameworks */,
@@ -3773,6 +3781,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C1123601DF4F5C5006A334F /* opencv2.framework in Frameworks */,
+				6C11235D1DF4EAFC006A334F /* opencv2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3984,6 +3994,7 @@
 		4A2F73021178414800F35FA7 /* ARApp2 */ = {
 			isa = PBXGroup;
 			children = (
+				6C11235C1DF4EAFC006A334F /* opencv2.framework */,
 				4A2F7404117845AD00F35FA7 /* Classes */,
 				4A2F7405117845C200F35FA7 /* Other source */,
 				4A2F7406117845D400F35FA7 /* Resources */,
@@ -3998,7 +4009,7 @@
 				4A2F73051178414800F35FA7 /* ARApp2Delegate.h */,
 				4A2F73061178414800F35FA7 /* ARApp2Delegate.m */,
 				4A2F73091178414800F35FA7 /* ARViewController.h */,
-				4A2F730A1178414800F35FA7 /* ARViewController.m */,
+				4A2F730A1178414800F35FA7 /* ARViewController.mm */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -5344,6 +5355,7 @@
 		4AEAEB8E17A743F300F61E33 /* ARAppES1 */ = {
 			isa = PBXGroup;
 			children = (
+				6C11235F1DF4F5C5006A334F /* opencv2.framework */,
 				4AEAEB8F17A7441500F61E33 /* Classes */,
 				4AEAEB9017A7441D00F61E33 /* Other source */,
 				4AEAEB9117A7442500F61E33 /* Resources */,
@@ -7586,7 +7598,7 @@
 				4A2F7313117841F000F35FA7 /* ARApp2Delegate.m in Sources */,
 				4A347B3818B16327000BEB89 /* ARMarkerMulti.m in Sources */,
 				4A33B6E518ADBA2D0028A979 /* ARMarkerSquare.m in Sources */,
-				4A2F7315117841F000F35FA7 /* ARViewController.m in Sources */,
+				4A2F7315117841F000F35FA7 /* ARViewController.mm in Sources */,
 				4A33B6D818ADB9790028A979 /* VEObject.m in Sources */,
 				4A2F7317117841F000F35FA7 /* main.m in Sources */,
 				4A33B6E118ADB9A40028A979 /* VirtualEnvironment.m in Sources */,
@@ -8616,6 +8628,10 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = JAZG4945VU;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/examples/ARApp2",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = examples/ARApp2/ARApp2_Prefix.pch;
 				INFOPLIST_FILE = "examples/ARApp2/ARApp2-Info.plist";
@@ -8631,6 +8647,10 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = JAZG4945VU;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/examples/ARApp2",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = examples/ARApp2/ARApp2_Prefix.pch;
 				INFOPLIST_FILE = "examples/ARApp2/ARApp2-Info.plist";
@@ -8647,6 +8667,10 @@
 				CODE_SIGN_ENTITLEMENTS = examples/ARApp2/dist.plist;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				DEVELOPMENT_TEAM = JAZG4945VU;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/examples/ARApp2",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = examples/ARApp2/ARApp2_Prefix.pch;
 				INFOPLIST_FILE = "examples/ARApp2/ARApp2-Info.plist";
@@ -9346,6 +9370,10 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = D68CWZXZMA;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/examples/ARAppES1",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = examples/ARAppES1/ARAppES1_Prefix.pch;
 				INFOPLIST_FILE = "examples/ARAppES1/ARAppES1-Info.plist";
@@ -9360,6 +9388,10 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = D68CWZXZMA;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/examples/ARAppES1",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = examples/ARAppES1/ARAppES1_Prefix.pch;
 				INFOPLIST_FILE = "examples/ARAppES1/ARAppES1-Info.plist";
@@ -9375,6 +9407,10 @@
 				CODE_SIGN_ENTITLEMENTS = examples/ARAppES1/dist.plist;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				DEVELOPMENT_TEAM = D68CWZXZMA;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/examples/ARAppES1",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = examples/ARAppES1/ARAppES1_Prefix.pch;
 				INFOPLIST_FILE = "examples/ARAppES1/ARAppES1-Info.plist";
@@ -9391,6 +9427,11 @@
 			buildSettings = {
 				DEPLOYMENT_LOCATION = YES;
 				DSTROOT = "$(SRCROOT)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/examples/ARApp2",
+					"$(PROJECT_DIR)/examples/ARAppES1",
+				);
 				INSTALL_PATH = /lib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WARNING_CFLAGS = (
@@ -9406,6 +9447,11 @@
 			buildSettings = {
 				DEPLOYMENT_LOCATION = YES;
 				DSTROOT = "$(SRCROOT)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/examples/ARApp2",
+					"$(PROJECT_DIR)/examples/ARAppES1",
+				);
 				INSTALL_PATH = /lib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WARNING_CFLAGS = (
@@ -9421,6 +9467,11 @@
 			buildSettings = {
 				DEPLOYMENT_LOCATION = YES;
 				DSTROOT = "$(SRCROOT)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/examples/ARApp2",
+					"$(PROJECT_DIR)/examples/ARAppES1",
+				);
 				INSTALL_PATH = /lib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

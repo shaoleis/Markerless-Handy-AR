@@ -67,12 +67,12 @@
     //self.videoCamera.defaultAVCaptureSessionPreset = AVCaptureSessionPreset1280x720;
     
     // Finally add the FPS text to the view
-    fpsView_ = [[UITextView alloc] initWithFrame:CGRectMake(0,15,view_width,std::max(offset,35))];
-    [fpsView_ setOpaque:false]; // Set to be Opaque
-    [fpsView_ setBackgroundColor:[UIColor clearColor]]; // Set background color to be clear
-    [fpsView_ setTextColor:[UIColor redColor]]; // Set text to be RED
-    [fpsView_ setFont:[UIFont systemFontOfSize:18]]; // Set the Font size
-    [self.view addSubview:fpsView_];
+    //fpsView_ = [[UITextView alloc] initWithFrame:CGRectMake(0,15,view_width,std::max(offset,35))];
+    //[fpsView_ setOpaque:false]; // Set to be Opaque
+    //[fpsView_ setBackgroundColor:[UIColor clearColor]]; // Set background color to be clear
+    //[fpsView_ setTextColor:[UIColor redColor]]; // Set text to be RED
+    //[fpsView_ setFont:[UIFont systemFontOfSize:18]]; // Set the Font size
+    //[self.view addSubview:fpsView_];
     
     [videoCamera start];
     
