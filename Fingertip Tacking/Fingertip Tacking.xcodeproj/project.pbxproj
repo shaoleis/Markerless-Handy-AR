@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4FD6A79A1DF4F2ED00FDEDE7 /* fingertiptracking.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4FD6A7981DF4F2ED00FDEDE7 /* fingertiptracking.cpp */; };
 		4FDB46321DF396ED00FFC9AB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FDB46311DF396ED00FFC9AB /* main.m */; };
 		4FDB46351DF396ED00FFC9AB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FDB46341DF396ED00FFC9AB /* AppDelegate.m */; };
 		4FDB46381DF396ED00FFC9AB /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4FDB46371DF396ED00FFC9AB /* ViewController.mm */; };
@@ -43,6 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4FD6A7981DF4F2ED00FDEDE7 /* fingertiptracking.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fingertiptracking.cpp; sourceTree = "<group>"; };
+		4FD6A79B1DF4F32A00FDEDE7 /* fingertiptracking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fingertiptracking.h; sourceTree = "<group>"; };
 		4FDB462D1DF396ED00FFC9AB /* Fingertip Tacking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fingertip Tacking.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FDB46311DF396ED00FFC9AB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4FDB46331DF396ED00FFC9AB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -135,6 +138,8 @@
 			children = (
 				4FDB46331DF396ED00FFC9AB /* AppDelegate.h */,
 				4FDB46341DF396ED00FFC9AB /* AppDelegate.m */,
+				4FD6A7981DF4F2ED00FDEDE7 /* fingertiptracking.cpp */,
+				4FD6A79B1DF4F32A00FDEDE7 /* fingertiptracking.h */,
 				4FDB46361DF396ED00FFC9AB /* ViewController.h */,
 				4FDB46371DF396ED00FFC9AB /* ViewController.mm */,
 				4FDB46391DF396EE00FFC9AB /* Main.storyboard */,
@@ -309,6 +314,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4FDB46381DF396ED00FFC9AB /* ViewController.mm in Sources */,
+				4FD6A79A1DF4F2ED00FDEDE7 /* fingertiptracking.cpp in Sources */,
 				4FDB46351DF396ED00FFC9AB /* AppDelegate.m in Sources */,
 				4FDB46321DF396ED00FFC9AB /* main.m in Sources */,
 			);
@@ -558,6 +564,7 @@
 				4FDB465C1DF396EE00FFC9AB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4FDB465D1DF396EE00FFC9AB /* Build configuration list for PBXNativeTarget "Fingertip TackingTests" */ = {
 			isa = XCConfigurationList;
@@ -566,6 +573,7 @@
 				4FDB465F1DF396EE00FFC9AB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4FDB46601DF396EE00FFC9AB /* Build configuration list for PBXNativeTarget "Fingertip TackingUITests" */ = {
 			isa = XCConfigurationList;
@@ -574,6 +582,7 @@
 				4FDB46621DF396EE00FFC9AB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
