@@ -331,4 +331,46 @@ float Edist(float px1, float py1, float px2, float py2)
     
     return dist1;
 }*/
+void drawCoordinate(cv::Mat &image,std::vector<cv::Point> validPoints,std::vector<cv::Point2f> proj_origin) {
+    if (validPoints.size() == 5) {
+        cv::Mat intrinsics;
+        cv::Mat distCoeffs;
+        cv::Mat rvec,tvec;
+        std::vector<cv::Point3f> origin(4);
+        origin[0] = cv::Point3f(7,7,1);
+        origin[1] = cv::Point3f(15,7,1);
+        origin[2] = cv::Point3f(7,15,1);
+        origin[3] = cv::Point3f(7,7,8);
+        std::vector<cv::Point3f> objpts(5);
+        std::vector<cv::Point2f> imgpts(5);
+        std::vector<cv::Point2f> proj_origin;
+        objpts[0] = cv::Point3f(15.2,7.0,1);
+        objpts[1] = cv::Point3f(12.1,14.7,1);
+        objpts[2] = cv::Point3f(7.5,16.5,1);
+        objpts[3] = cv::Point3f(4.1,15.8,1);
+        objpts[4] = cv::Point3f(0,12,1);
+        imgpts[0] = cv::Point2f(validPoints.at(0).x,validPoints.at(0).y);
+        imgpts[1] = cv::Point2f(validPoints.at(1).x,validPoints.at(1).y);
+        imgpts[2] = cv::Point2f(validPoints.at(2).x,validPoints.at(2).y);
+        imgpts[3] = cv::Point2f(validPoints.at(3).x,validPoints.at(3).y);
+        imgpts[4] = cv::Point2f(validPoints.at(4).x,validPoints.at(4).y);
+        intrinsics = cv::Mat::zeros(3,3,CV_64F);
+        intrinsics.at<double>(0,0) = 2871.8995;
+        intrinsics.at<double>(1,1) = 2871.8995;
+        intrinsics.at<double>(2,2) = 1;
+        intrinsics.at<double>(0,2) = 1631.5;
+        intrinsics.at<double>(1,2) = 1223.5;
+        distCoeffs = cv::Mat(5,1,cv::DataType<double>::type);
+        distCoeffs.at<double>(0) = -.0008211;
+        distCoeffs.at<double>(1) = 0.640757;
+        distCoeffs.at<double>(2) = 0;
+        distCoeffs.at<double>(3) = 0;
+        distCoeffs.at<double>(4) = -1.7248;
+        cv::solvePnP(objpts, imgpts, intrinsics,distCoeffs,rvec,tvec);
+        cv::projectPoints(origin, rvec, tvec, intrinsics, distCoeffs,proj_origin);
+        cv::arrowedLine(image, proj_origin[0], proj_origin[1], cv::Scalar(255, 0, 255), 1);
+        cv::arrowedLine(image, proj_origin[0], proj_origin[2], cv::Scalar(0, 0, 255), 1);
+        cv::arrowedLine(image, proj_origin[0], proj_origin[3], cv::Scalar(0, 255, 0), 1);
+        cv::circle(image,proj_origin[0],9, cv::Scalar(255, 0, 0), 2);
+    } 
 @end
