@@ -373,4 +373,5 @@ void drawCoordinate(cv::Mat &image,std::vector<cv::Point> validPoints,std::vecto
         cv::arrowedLine(image, proj_origin[0], proj_origin[3], cv::Scalar(0, 255, 0), 1);
         cv::circle(image,proj_origin[0],9, cv::Scalar(255, 0, 0), 2);
     } 
+}
 @end
