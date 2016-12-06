@@ -10,21 +10,10 @@
 
 std::vector<cv::Point> Tracking(cv::Mat &src)
 {
-    int minH = 70, maxH = 160, minS = 70, maxS = 200, minV = 70, maxV = 250;
     std::vector<cv::Point> validPoints;
     cv::Mat hsv;
-    cv::cvtColor(src, hsv, CV_RGB2HSV);
-    //coarse segmentation
+    hsv = imageprocess(src);
     
-    
-    cv::inRange(hsv, cv::Scalar(minH, minS, minV), cv::Scalar(maxH, maxS, maxV), hsv);
-    
-    int blurSize = 5;
-    int elementSize = 3;
-    //process
-    cv::medianBlur(hsv, hsv, blurSize);
-    cv::Mat element = cv::getStructuringElement(cv::MORPH_ELLIPSE, cv::Size(2 * elementSize + 1, 2 * elementSize + 1), cv::Point(elementSize, elementSize));
-    cv::dilate(hsv, hsv, element);
     std::vector<std::vector<cv::Point> > contours;
     std::vector<cv::Vec4i> hierarchy;
     //find countour
@@ -101,6 +90,25 @@ std::vector<cv::Point> Tracking(cv::Mat &src)
     return validPoints;
 }
 
+cv::Mat imageprocess(cv::Mat &src)
+{
+    int minH = 100, maxH = 120, minS = 70, maxS = 150, minV = 70, maxV = 250;
+    cv::Mat hsv;
+    cv::cvtColor(src, hsv, CV_RGB2HSV);
+    //coarse segmentation
+    
+    cv::inRange(hsv, cv::Scalar(minH, minS, minV), cv::Scalar(maxH, maxS, maxV), hsv);
+    
+    int blurSize = 5;
+    int elementSize = 4;
+    //process
+    cv::medianBlur(hsv, hsv, blurSize);
+    cv::Mat element = cv::getStructuringElement(cv::MORPH_ELLIPSE, cv::Size(2 * elementSize + 1, 2 * elementSize + 1), cv::Point(elementSize, elementSize));
+    cv::dilate(hsv, hsv, element);
+    
+    return hsv;
+}
+
 float innerAngle(float px1, float py1, float px2, float py2, float cx1, float cy1)
 {
     
@@ -153,3 +161,5 @@ float Edist(float px1, float py1, float px2, float py2)
     
     return dist1;
 }
+
+
