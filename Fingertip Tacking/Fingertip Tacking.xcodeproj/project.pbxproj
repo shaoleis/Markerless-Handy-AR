@@ -24,6 +24,7 @@
 		4FDB466E1DF3984400FFC9AB /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FDB466D1DF3984400FFC9AB /* CoreVideo.framework */; };
 		4FDB46701DF3984F00FFC9AB /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FDB466F1DF3984F00FFC9AB /* CoreImage.framework */; };
 		4FDB46721DF3985C00FFC9AB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FDB46711DF3985C00FFC9AB /* QuartzCore.framework */; };
+		6C06D1EE1DF65715002F8643 /* Iris.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C06D1ED1DF65715002F8643 /* Iris.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		4FDB466D1DF3984400FFC9AB /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreVideo.framework; sourceTree = DEVELOPER_DIR; };
 		4FDB466F1DF3984F00FFC9AB /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreImage.framework; sourceTree = DEVELOPER_DIR; };
 		4FDB46711DF3985C00FFC9AB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		6C06D1ED1DF65715002F8643 /* Iris.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Iris.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +156,7 @@
 		4FDB46301DF396ED00FFC9AB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				6C06D1ED1DF65715002F8643 /* Iris.png */,
 				4FDB46311DF396ED00FFC9AB /* main.m */,
 			);
 			name = "Supporting Files";
@@ -288,6 +291,7 @@
 			files = (
 				4FDB46401DF396EE00FFC9AB /* LaunchScreen.storyboard in Resources */,
 				4FDB463D1DF396EE00FFC9AB /* Assets.xcassets in Resources */,
+				6C06D1EE1DF65715002F8643 /* Iris.png in Resources */,
 				4FDB463B1DF396EE00FFC9AB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
