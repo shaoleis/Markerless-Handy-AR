@@ -9,8 +9,6 @@
 #ifndef fingertiptracking_h
 #define fingertiptracking_h
 #include <opencv2/opencv.hpp> 
-
-cv::Mat imageprocess(cv::Mat &src);
 std::vector<cv::Point> Tracking(cv::Mat &src);
 float innerAngle(float px1, float py1, float px2, float py2, float cx1, float cy1);
 float Edist(float px1, float py1, float px2, float py2);

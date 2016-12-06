@@ -22,7 +22,6 @@
 // Declare internal property of videoCamera
 @property (nonatomic, retain) CvVideoCamera *videoCamera;
 
-
 @end
 
 
