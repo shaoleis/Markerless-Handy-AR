@@ -65,7 +65,7 @@
 #define VIEW_SCALEFACTOR        1.0f
 #define VIEW_DISTANCE_MIN        5.0f          // Objects closer to the camera than this will not be displayed.
 #define VIEW_DISTANCE_MAX        2000.0f        // Objects further away from the camera than this will not be displayed.
-#define DEBUG
+//#define DEBUG
 
 //
 // ARViewController
@@ -309,7 +309,6 @@ static void startCallback(void *userData)
 #ifdef DEBUG
     fprintf(stdout, "*** Camera Parameter ***\n");
     arParamDisp(&cparam);
-    
 #endif
     if ((gCparamLT = arParamLTCreate(&cparam, AR_PARAM_LT_DEFAULT_OFFSET)) == NULL) {
         NSLog(@"Error: arParamLTCreate.\n");
