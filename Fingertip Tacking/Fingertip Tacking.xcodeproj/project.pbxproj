@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4FD6A79A1DF4F2ED00FDEDE7 /* fingertiptracking.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4FD6A7981DF4F2ED00FDEDE7 /* fingertiptracking.cpp */; };
+		4FD6A79D1DF5F32000FDEDE7 /* template.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 4FD6A79C1DF5F32000FDEDE7 /* template.JPG */; };
+		4FD6A7A11DF60EE100FDEDE7 /* new.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 4FD6A7A01DF60EE100FDEDE7 /* new.PNG */; };
 		4FDB46321DF396ED00FFC9AB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FDB46311DF396ED00FFC9AB /* main.m */; };
 		4FDB46351DF396ED00FFC9AB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FDB46341DF396ED00FFC9AB /* AppDelegate.m */; };
 		4FDB46381DF396ED00FFC9AB /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4FDB46371DF396ED00FFC9AB /* ViewController.mm */; };
@@ -47,6 +49,8 @@
 /* Begin PBXFileReference section */
 		4FD6A7981DF4F2ED00FDEDE7 /* fingertiptracking.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fingertiptracking.cpp; sourceTree = "<group>"; };
 		4FD6A79B1DF4F32A00FDEDE7 /* fingertiptracking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fingertiptracking.h; sourceTree = "<group>"; };
+		4FD6A79C1DF5F32000FDEDE7 /* template.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = template.JPG; sourceTree = "<group>"; };
+		4FD6A7A01DF60EE100FDEDE7 /* new.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = new.PNG; sourceTree = "<group>"; };
 		4FDB462D1DF396ED00FFC9AB /* Fingertip Tacking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fingertip Tacking.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FDB46311DF396ED00FFC9AB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4FDB46331DF396ED00FFC9AB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -156,7 +160,12 @@
 		4FDB46301DF396ED00FFC9AB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				6C06D1ED1DF65715002F8643 /* Iris.png */,
+=======
+				4FD6A7A01DF60EE100FDEDE7 /* new.PNG */,
+				4FD6A79C1DF5F32000FDEDE7 /* template.JPG */,
+>>>>>>> origin/master
 				4FDB46311DF396ED00FFC9AB /* main.m */,
 			);
 			name = "Supporting Files";
@@ -247,7 +256,7 @@
 				TargetAttributes = {
 					4FDB462C1DF396ED00FFC9AB = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = JAZG4945VU;
+						DevelopmentTeam = 6MRNLXPH2J;
 						ProvisioningStyle = Automatic;
 					};
 					4FDB46451DF396EE00FFC9AB = {
@@ -293,6 +302,8 @@
 				4FDB463D1DF396EE00FFC9AB /* Assets.xcassets in Resources */,
 				6C06D1EE1DF65715002F8643 /* Iris.png in Resources */,
 				4FDB463B1DF396EE00FFC9AB /* Main.storyboard in Resources */,
+				4FD6A79D1DF5F32000FDEDE7 /* template.JPG in Resources */,
+				4FD6A7A11DF60EE100FDEDE7 /* new.PNG in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -469,7 +480,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = JAZG4945VU;
+				DEVELOPMENT_TEAM = 6MRNLXPH2J;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -478,7 +489,7 @@
 				INFOPLIST_FILE = "Fingertip Tacking/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "-6623.Fingertip-Tacking-shaoleis";
+				PRODUCT_BUNDLE_IDENTIFIER = "-6623.Fingertip-Tacking-miaol1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -487,7 +498,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = JAZG4945VU;
+				DEVELOPMENT_TEAM = 6MRNLXPH2J;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -496,7 +507,7 @@
 				INFOPLIST_FILE = "Fingertip Tacking/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "-6623.Fingertip-Tacking-shaoleis";
+				PRODUCT_BUNDLE_IDENTIFIER = "-6623.Fingertip-Tacking-miaol1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

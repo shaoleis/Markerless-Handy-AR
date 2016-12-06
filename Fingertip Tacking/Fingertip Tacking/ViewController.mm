@@ -20,6 +20,15 @@
 
 @interface ViewController(){
     UIImageView *imageView_; // Setup the image view
+    cv::vector<cv::KeyPoint> template_keypoints;
+    cv::Mat template_im, template_gray, template_copy;
+    cv::Mat template_descriptor;
+    //cv::Ptr<cv::BFMatcher> matcher;
+    cv::SurfFeatureDetector *detector_; // Set the SURF Detector
+    cv::SurfDescriptorExtractor *extractor_; // Set the SURF Extractor
+    std::vector<cv::Point2f> obj_corners;
+    std::vector<cv::Point> previouspoints;
+    std::vector<cv::Point2f> proj_origin;
     UITextView *fpsView_; // Display the current FPS
     int64 curr_time_; // Store the current time
     cv::Mat intrinsics;
@@ -35,20 +44,39 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    //UIImage *template_image = [UIImage imageNamed:@"template.JPG"];
+    UIImage *template_image = [UIImage imageNamed:@"template.JPG"];
+    template_im = [self cvMatFromUIImage:template_image];
+    resize(template_im, template_im, cv::Size2f(480,640));
+    std::cout << "vDSP took " << template_im.cols<< " seconds." << std::endl;
+    std::cout << "vDSP took " << template_im.rows<< " seconds." << std::endl;
+    int minHessian = 400;
+    detector_ = new cv::SurfFeatureDetector(minHessian); // Set the detector
+    extractor_ = new cv::SurfDescriptorExtractor(); // Set the extractor
+
+    cv::cvtColor(template_im, template_gray, CV_RGBA2GRAY);
     
-    // Initialize the view
-    // Hacky way to initialize the view to ensure the aspect ratio looks correct
-    // across all devices. Unfortunately, setting UIViewContentModeScaleAspectFill
-    // does not work with the CvCamera Delegate so we have to hard code everything....
-    //
-    // Assuming camera input is 352x288 (set using AVCaptureSessionPreset)
+    
+    detector_->detect(template_gray, template_keypoints);
+    
+    extractor_->compute(template_gray, template_keypoints, template_descriptor);
+    
+    cv::BFMatcher matcher(cv::NORM_L2,true);
+    cv::Mat img_matches;
+    std::vector< cv::DMatch > matches;
+    
+    obj_corners = std::vector<cv::Point2f> (4);
+    obj_corners[0] = cvPoint(0,0);
+    obj_corners[1] = cvPoint( template_im.cols, 0 );
+    obj_corners[2] = cvPoint( template_im.cols, template_im.rows );
+    obj_corners[3] = cvPoint( 0, template_im.rows );
     float cam_width = 480; float cam_height = 640;
-    
-    // Take into account size of camera input
+
     int view_width = self.view.frame.size.width;
     int view_height = (int)(cam_height*self.view.frame.size.width/cam_width);
     int offset = (self.view.frame.size.height - view_height)/2;
     
+<<<<<<< HEAD
     // Initial view
     UIImage *imageFromFile = [UIImage imageNamed: @"Iris.png"];
     UIImage *imageToDraw = [ViewController imageWithImage:imageFromFile scaledToSize:CGSizeMake(view_width, view_height)];
@@ -56,8 +84,12 @@
     imageView_ = [[UIImageView alloc] initWithImage:imageToDraw];
 
     //[imageView_ setContentMode:UIViewContentModeScaleAspectFill]; (does not work)
+=======
+    imageView_ = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, offset, view_width, view_height)];
+>>>>>>> origin/master
     [self.view addSubview:imageView_]; // Add the view
     
+
     // Initialize the video camera
     self.videoCamera = [[CvVideoCamera alloc] initWithParentView:imageView_];
     self.videoCamera.delegate = self;
@@ -70,6 +102,8 @@
     // Choose these depending on the camera input chosen
     //self.videoCamera.defaultAVCaptureSessionPreset = AVCaptureSessionPreset352x288;
     self.videoCamera.defaultAVCaptureSessionPreset = AVCaptureSessionPreset640x480;
+
+
     //self.videoCamera.defaultAVCaptureSessionPreset = AVCaptureSessionPreset1280x720;
     
     // Finally add the FPS text to the view
@@ -110,6 +144,9 @@
 // Function to run apply image on
 - (void) processImage:(cv:: Mat &)image
 {
+    /*cv::Mat image_gray;
+    cv::Mat image_descriptor;
+    cv::Mat hsv = imageprocess(image);
 //    std::vector<cv::Point> validPoints;
 //    validPoints = Tracking(image);
 //    for (size_t i = 0; i < validPoints.size(); i++)
@@ -184,6 +221,7 @@
     cv::medianBlur(hsv, hsv, blurSize);
     cv::Mat element = cv::getStructuringElement(cv::MORPH_ELLIPSE, cv::Size(2 * elementSize + 1, 2 * elementSize + 1), cv::Point(elementSize, elementSize));
     cv::dilate(hsv, hsv, element);
+>>>>>>> origin/master
     std::vector<std::vector<cv::Point> > contours;
     std::vector<cv::Vec4i> hierarchy;
     //find countour
@@ -195,125 +233,97 @@
         if (cv::contourArea(contours[i]) > cv::contourArea(contours[largestContour]))
             largestContour = i;
     }
-    int t;
     cv::drawContours(image, contours, largestContour, cv::Scalar(0, 0, 255), 1);
-    if (!contours.empty())
+    
+    cv::BFMatcher matcher(cv::NORM_L2,true);
+    std::vector<cv::DMatch> matches;
+    
+    cvtColor(image, image_gray, CV_BGR2GRAY);
+    
+    cv::vector<cv::KeyPoint> image_keypoints;
+    detector_->detect(image_gray, image_keypoints);
+    extractor_->compute(image_gray, image_keypoints, image_descriptor);
+    if(image_descriptor.cols == template_descriptor.cols)
     {
-        std::vector<std::vector<cv::Point> > hull(1);
-        cv::convexHull(cv::Mat(contours[largestContour]), hull[0], false);
-        cv::drawContours(image, hull, 0, cv::Scalar(0, 255, 0), 3);
-        if (hull[0].size() > 2)
+        matcher.match(template_descriptor, image_descriptor, matches);
+    
+        
+        double max_dist = 0; double min_dist = 3000;
+    //-- Quick calculation of max and min distances between keypoints
+        for( int i = 0; i < matches.size(); i++ )
         {
-            std::vector<int> hullIndexes;
-            cv::convexHull(cv::Mat(contours[largestContour]), hullIndexes, true);
-            std::vector<cv::Vec4i> convexityDefects;
-            cv::convexityDefects(cv::Mat(contours[largestContour]), hullIndexes, convexityDefects);
-            cv::Rect boundingBox = cv::boundingRect(hull[0]);
-            cv::rectangle(image, boundingBox, cv::Scalar(255, 0, 0));
-            cv::Point center = cv::Point(boundingBox.x + boundingBox.width / 2, boundingBox.y + boundingBox.height / 2);
-            std::vector<cv::Point> validPoints;
-            for (size_t i = 0; i < convexityDefects.size(); i++)
+            double dist = matches[i].distance;
+            if( dist < min_dist ) min_dist = dist;
+            if( dist > max_dist ) max_dist = dist;
+        }
+        
+        std::vector< cv::DMatch > good_matches;
+        for( int i = 0; i < matches.size(); i++ )
+        {
+        
+            if( cv::pointPolygonTest(contours[largestContour],  image_keypoints[matches[i].trainIdx].pt , false)==1 && matches[i].distance < 4*min_dist  )
             {
-                
-                cv::Point p1 = contours[largestContour][convexityDefects[i][0]];
-                cv::Point p2 = contours[largestContour][convexityDefects[i][1]];
-                cv::Point p3 = contours[largestContour][convexityDefects[i][2]];
-                //cv::line(cvImage, p1, p3, cv::Scalar(0, 0, 255), 2);
-                //cv::line(cvImage, p3, p2, cv::Scalar(0, 0, 255), 2);
-                double angle = std::atan2(center.y - p1.y, center.x - p1.x) * 180 / CV_PI;
-                double inAngle = innerAngle(p1.x, p1.y, p2.x, p2.y, p3.x, p3.y);
-                double length = std::sqrt(std::pow(p1.x - p3.x, 2) + std::pow(p1.y - p3.y, 2));
-                t = validPoints.size();
-                
-                if (angle > 0 && angle < 179 && std::abs(inAngle) > 20 && std::abs(inAngle) < 80 && length > 0.1 * boundingBox.height)
-                {
-                    
-                    if (t>0)
-                    {
-                        if(Edist(validPoints.at(t-1).x,validPoints.at(t-1).y,p1.x,p1.y)>1000)
-                        {
-                            validPoints.push_back(p1);
-                        }
-                    }
-                    else
-                    {
-                        validPoints.push_back(p1);
-                    }
-                }
-                if (angle <30 && std::abs(inAngle) <30 && angle >-30)
-                {
-                    
-                    if (t>0)
-                    {
-                        if(Edist(validPoints.at(t-1).x,validPoints.at(t-1).y,p1.x,p1.y)>1000)
-                        {
-                            validPoints.push_back(p1);
-                        }
-                    }
-                }
-            }
-            
-            for (size_t i = 0; i < validPoints.size(); i++)
-            {
-                cv::circle(image, validPoints[i], 9, cv::Scalar(0, 255, 0), 2);
+                good_matches.push_back( matches[i]);
             }
         }
+
+        std::cout << "vDSP took " << good_matches.size()<< " seconds." << std::endl;
+        cv::vector<cv::Point3f> source;
+        cv::vector<cv::Point2f> source2;
+        cv::vector<cv::Point2f> dest;
+        for(int i = 0; i < good_matches.size(); i++)
+        {
+            source.push_back(cv::Point3f(template_keypoints[good_matches[i].queryIdx].pt.x,
+                                     template_keypoints[good_matches[i].queryIdx].pt.y,
+                                     0));
+            source2.push_back(template_keypoints[good_matches[i].queryIdx].pt);
+            dest.push_back(image_keypoints[good_matches[i].trainIdx].pt);
+        }
+        cv::Mat inliers_mask;
+        cv::Mat H = cv::findHomography(source2, dest, CV_RANSAC, 5, inliers_mask);
+        std::vector<cv::Point2f> scene_corners(4);
+        
+        cv::perspectiveTransform( obj_corners, scene_corners, H);
+        
+        for (size_t i = 0; i < scene_corners.size(); i++)
+        {
+            cv::circle(image, scene_corners[i], 9, cv::Scalar(0, 255, 0), 2);
+            cv::circle(image, obj_corners[i], 9, cv::Scalar(0, 0, 255), 2);
+        }
+        
+       
     }*/
-    
-}
-
-/*float innerAngle(float px1, float py1, float px2, float py2, float cx1, float cy1)
-{
-    
-    float dist1 = std::sqrt(  (px1-cx1)*(px1-cx1) + (py1-cy1)*(py1-cy1) );
-    float dist2 = std::sqrt(  (px2-cx1)*(px2-cx1) + (py2-cy1)*(py2-cy1) );
-    
-    float Ax, Ay;
-    float Bx, By;
-    float Cx, Cy;
-    
-    //find closest point to C
-    //printf("dist = %lf %lf\n", dist1, dist2);
-    
-    Cx = cx1;
-    Cy = cy1;
-    if(dist1 < dist2)
+        
+    std::vector<cv::Point> validPoints;
+    //std::vector<cv::Point2f> proj_origin;
+    validPoints = Tracking(image);
+    for (size_t i = 0; i < previouspoints.size(); i++)
     {
-        Bx = px1;
-        By = py1;
-        Ax = px2;
-        Ay = py2;
         
+        cv::circle(image, previouspoints[i], 9, cv::Scalar(0, 0, 255), 2);
         
-    }else{
-        Bx = px2;
-        By = py2;
-        Ax = px1;
-        Ay = py1;
     }
+
     
-    
-    float Q1 = Cx - Ax;
-    float Q2 = Cy - Ay;
-    float P1 = Bx - Ax;
-    float P2 = By - Ay;
-    
-    
-    float A = std::acos( (P1*Q1 + P2*Q2) / ( std::sqrt(P1*P1+P2*P2) * std::sqrt(Q1*Q1+Q2*Q2) ) );
-    
-    A = A*180/CV_PI;
-    
-    return A;
+    for (size_t i = 0; i < validPoints.size(); i++)
+    {
+        if (previouspoints.size()>0)
+        {
+            if (Edist(validPoints[i].x, validPoints[i].y, previouspoints[i].x, previouspoints[i].y) <1000)
+            {
+                validPoints[i] =previouspoints[i];
+            }
+        }
+        cv::circle(image, validPoints[i], 9, cv::Scalar(0, 255, 0), 2);
+
+    }
+    previouspoints = validPoints;
+    drawCoordinate(image,validPoints,proj_origin);
+
+    //image = imageprocess(image);
+
 }
 
-float Edist(float px1, float py1, float px2, float py2)
-{
-    float dist1;
-    
-    dist1 = (px1-px2)*(px1-px2) + (py1-py2)*(py1-py2);
-    
-    return dist1;
-}*/
 void drawCoordinate(cv::Mat &image,std::vector<cv::Point> validPoints,std::vector<cv::Point2f> proj_origin) {
     if (validPoints.size() == 5) {
         cv::Mat intrinsics;
@@ -355,9 +365,72 @@ void drawCoordinate(cv::Mat &image,std::vector<cv::Point> validPoints,std::vecto
         cv::arrowedLine(image, proj_origin[0], proj_origin[2], cv::Scalar(0, 0, 255), 1);
         cv::arrowedLine(image, proj_origin[0], proj_origin[3], cv::Scalar(0, 255, 0), 1);
         cv::circle(image,proj_origin[0],9, cv::Scalar(255, 0, 0), 2);
-    } 
+    }
 }
 
+
+- (cv::Mat)cvMatFromUIImage:(UIImage *)image
+{
+    CGColorSpaceRef colorSpace = CGImageGetColorSpace(image.CGImage);
+    CGFloat cols = image.size.width;
+    CGFloat rows = image.size.height;
+    
+    cv::Mat cvMat(rows, cols, CV_8UC4); // 8 bits per component, 4 channels (color channels + alpha)
+    
+    CGContextRef contextRef = CGBitmapContextCreate(cvMat.data,                 // Pointer to  data
+                                                    cols,                       // Width of bitmap
+                                                    rows,                       // Height of bitmap
+                                                    8,                          // Bits per component
+                                                    cvMat.step[0],              // Bytes per row
+                                                    colorSpace,                 // Colorspace
+                                                    kCGImageAlphaNoneSkipLast |
+                                                    kCGBitmapByteOrderDefault); // Bitmap info flags
+    
+    CGContextDrawImage(contextRef, CGRectMake(0, 0, cols, rows), image.CGImage);
+    CGContextRelease(contextRef);
+    
+    return cvMat;
+}
+
+
+-(UIImage *)UIImageFromCVMat:(cv::Mat)cvMat
+{
+    NSData *data = [NSData dataWithBytes:cvMat.data length:cvMat.elemSize()*cvMat.total()];
+    CGColorSpaceRef colorSpace;
+    
+    if (cvMat.elemSize() == 1) {
+        colorSpace = CGColorSpaceCreateDeviceGray();
+    } else {
+        colorSpace = CGColorSpaceCreateDeviceRGB();
+    }
+    
+    CGDataProviderRef provider = CGDataProviderCreateWithCFData((__bridge CFDataRef)data);
+    
+    // Creating CGImage from cv::Mat
+    CGImageRef imageRef = CGImageCreate(cvMat.cols,                                 //width
+                                        cvMat.rows,                                 //height
+                                        8,                                          //bits per component
+                                        8 * cvMat.elemSize(),                       //bits per pixel
+                                        cvMat.step[0],                            //bytesPerRow
+                                        colorSpace,                                 //colorspace
+                                        kCGImageAlphaNone|kCGBitmapByteOrderDefault,// bitmap info
+                                        provider,                                   //CGDataProviderRef
+                                        NULL,                                       //decode
+                                        false,                                      //should interpolate
+                                        kCGRenderingIntentDefault                   //intent
+                                        );
+    
+    
+    // Getting UIImage from CGImage
+    UIImage *finalImage = [UIImage imageWithCGImage:imageRef];
+    CGImageRelease(imageRef);
+    CGDataProviderRelease(provider);
+    CGColorSpaceRelease(colorSpace);
+    
+    return finalImage;
+}
+
+<<<<<<< HEAD
 - (void) drawCube: (cv::Mat &) image: (std::vector<cv::Point2f>) cube_proj_corners
 {
     UIImage *imageToDraw = [UIImage imageNamed: @"Iris.png"];
@@ -433,6 +506,16 @@ void drawCoordinate(cv::Mat &image,std::vector<cv::Point> validPoints,std::vecto
     UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return newImage;
+=======
+
+float Edist(float px1, float py1, float px2, float py2)
+{
+    float dist1;
+    
+    dist1 = (px1-px2)*(px1-px2) + (py1-py2)*(py1-py2);
+    
+    return dist1;
+>>>>>>> origin/master
 }
 
 @end
