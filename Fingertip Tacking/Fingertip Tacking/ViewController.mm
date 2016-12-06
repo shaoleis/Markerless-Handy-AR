@@ -29,6 +29,11 @@
     std::vector<cv::Point2f> obj_corners;
     std::vector<cv::Point> previouspoints;
     std::vector<cv::Point2f> proj_origin;
+    UITextView *fpsView_; // Display the current FPS
+    int64 curr_time_; // Store the current time
+    cv::Mat intrinsics;
+    cv::Mat distCoeffs;
+    bool first;
 }
 @end
 
@@ -89,7 +94,33 @@
     //self.videoCamera.defaultAVCaptureSessionPreset = AVCaptureSessionPreset352x288;
     self.videoCamera.defaultAVCaptureSessionPreset = AVCaptureSessionPreset640x480;
 
+
+    //self.videoCamera.defaultAVCaptureSessionPreset = AVCaptureSessionPreset1280x720;
     
+    // Finally add the FPS text to the view
+    fpsView_ = [[UITextView alloc] initWithFrame:CGRectMake(0,15,view_width,std::max(offset,35))];
+    [fpsView_ setOpaque:false]; // Set to be Opaque
+    [fpsView_ setBackgroundColor:[UIColor clearColor]]; // Set background color to be clear
+    [fpsView_ setTextColor:[UIColor redColor]]; // Set text to be RED
+    [fpsView_ setFont:[UIFont systemFontOfSize:18]]; // Set the Font size
+    [self.view addSubview:fpsView_];
+    
+    
+    // For AR
+    intrinsics = cv::Mat::zeros(3,3,CV_64F);
+    intrinsics.at<double>(0,0) = 2871.8995;
+    intrinsics.at<double>(1,1) = 2871.8995;
+    intrinsics.at<double>(2,2) = 1;
+    intrinsics.at<double>(0,2) = 1631.5;
+    intrinsics.at<double>(1,2) = 1223.5;
+    distCoeffs = cv::Mat(5,1,cv::DataType<double>::type);
+    distCoeffs.at<double>(0) = 0;
+    distCoeffs.at<double>(1) = 0;
+    distCoeffs.at<double>(2) = 0;
+    distCoeffs.at<double>(3) = 0;
+    distCoeffs.at<double>(4) = 0;
+    first = true;
+
     [videoCamera start];
     
 }
@@ -108,6 +139,100 @@
     /*cv::Mat image_gray;
     cv::Mat image_descriptor;
     cv::Mat hsv = imageprocess(image);
+//    std::vector<cv::Point> validPoints;
+//    validPoints = Tracking(image);
+//    for (size_t i = 0; i < validPoints.size(); i++)
+//    {
+//        cv::circle(image, validPoints[i], 9, cv::Scalar(0, 255, 0), 2);
+//    }
+    
+    // Add AR
+    cv::Mat image_copy;
+    cvtColor(image, image_copy, CV_BGRA2BGR);
+    
+    cv::Mat rvec, tvec;
+    std::vector<cv::Point3f> proj_corners(4);
+    std::vector<cv::Point2f> scene_proj_corners(4);
+    std::vector<cv::Point2f> scene_corners(4);
+    
+    float x = 120;
+    float y = 385;
+    float w = 188;
+    float h = -200;
+    
+    proj_corners[0] = cv::Point3f(0, 0, 0);
+    proj_corners[1] = cv::Point3f(182, 0,0);
+    proj_corners[2] = cv::Point3f( 182, 260, 0 );
+    proj_corners[3] = cv::Point3f( 0, 260, 0 );
+    
+    scene_corners[0] = cv::Point2f(0,0);
+    scene_corners[1] = cv::Point2f(182,0);
+    scene_corners[2] = cv::Point2f(182,260);
+    scene_corners[3] = cv::Point2f(0,260);
+    
+    
+    //either solve with scene_corners or estPts
+    cv::solvePnP(proj_corners, scene_corners, intrinsics, distCoeffs, rvec, tvec);
+    
+    std::vector<cv::Point3f> cube_corners(8);
+    //left face
+    cube_corners[0] = cv::Point3f(x + w, y, h);
+    cube_corners[1] = cv::Point3f(x + w, y, h-w );
+    cube_corners[2] = cv::Point3f(x + w, y + w, h-w );
+    cube_corners[3] = cv::Point3f(x + w, y + w, h );
+    cube_corners[4] = cv::Point3f(x + w + w, y, h);
+    cube_corners[5] = cv::Point3f(x + w + w, y, h-w );
+    cube_corners[6] = cv::Point3f(x + w + w, y + w, h-w );
+    cube_corners[7] = cv::Point3f(x + w + w, y + w, h );
+    
+    std::vector<cv::Point2f> cube_proj_corners;
+    
+    cv::projectPoints(cube_corners, rvec, tvec, intrinsics, distCoeffs, cube_proj_corners);
+    cv::projectPoints(proj_corners, rvec, tvec, intrinsics, distCoeffs, scene_proj_corners);
+    
+//    cv::line( image, scene_proj_corners[0], scene_proj_corners[1], cv::Scalar(255, 0, 255), 1 );
+//    cv::line( image, scene_proj_corners[1], scene_proj_corners[2], cv::Scalar(255, 0, 255), 1 );
+//    cv::line( image, scene_proj_corners[2], scene_proj_corners[3], cv::Scalar(255, 0, 255), 1 );
+//    cv::line( image, scene_proj_corners[3], scene_proj_corners[0], cv::Scalar(255, 0, 255), 1 );
+    
+    for (int i = 0; i < 8; i++) {
+        std::cout<<cube_proj_corners[i]<<std::endl;
+        cv::circle(image, cube_proj_corners[i], 10, cv::Scalar(255, 0, 255));
+    }
+    for (int i=0; i<5; i+=4) {
+    cv::line(image, cube_proj_corners[0+i], cube_proj_corners[1+i], cv::Scalar(0, 0, 255), 1);
+    cv::line(image, cube_proj_corners[1+i], cube_proj_corners[2+i], cv::Scalar(0, 0, 255), 1);
+    cv::line(image, cube_proj_corners[2+i], cube_proj_corners[3+i], cv::Scalar(0, 0, 255), 1);
+    cv::line(image, cube_proj_corners[3+i], cube_proj_corners[0+i], cv::Scalar(0, 0, 255), 1);
+    }
+    
+    cv::line(image, cube_proj_corners[0], cube_proj_corners[4], cv::Scalar(0, 0, 255), 1);
+    cv::line(image, cube_proj_corners[1], cube_proj_corners[5], cv::Scalar(0, 0, 255), 1);
+    cv::line(image, cube_proj_corners[2], cube_proj_corners[6], cv::Scalar(0, 0, 255), 1);
+    cv::line(image, cube_proj_corners[3], cube_proj_corners[7], cv::Scalar(0, 0, 255), 1);
+    if(first){
+        first = false;
+    }
+    
+    
+    
+    // Now apply Brisk features on the live camera
+    /*int minH = 70, maxH = 160, minS = 70, maxS = 200, minV = 70, maxV = 250;
+    
+    cv::Mat hsv;
+    cv::cvtColor(image, hsv, CV_RGB2HSV);
+    //coarse segmentation
+    
+    
+    cv::inRange(hsv, cv::Scalar(minH, minS, minV), cv::Scalar(maxH, maxS, maxV), hsv);
+    
+    int blurSize = 5;
+    int elementSize = 3;
+    //process
+    cv::medianBlur(hsv, hsv, blurSize);
+    cv::Mat element = cv::getStructuringElement(cv::MORPH_ELLIPSE, cv::Size(2 * elementSize + 1, 2 * elementSize + 1), cv::Point(elementSize, elementSize));
+    cv::dilate(hsv, hsv, element);
+>>>>>>> origin/master
     std::vector<std::vector<cv::Point> > contours;
     std::vector<cv::Vec4i> hierarchy;
     //find countour
@@ -315,4 +440,15 @@ void drawCoordinate(cv::Mat &image,std::vector<cv::Point> validPoints,std::vecto
     
     return finalImage;
 }
+
+
+float Edist(float px1, float py1, float px2, float py2)
+{
+    float dist1;
+    
+    dist1 = (px1-px2)*(px1-px2) + (py1-py2)*(py1-py2);
+    
+    return dist1;
+}
+
 @end
