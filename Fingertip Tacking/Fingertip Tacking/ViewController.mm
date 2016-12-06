@@ -24,6 +24,7 @@
     int64 curr_time_; // Store the current time
     cv::Mat intrinsics;
     cv::Mat distCoeffs;
+    bool first;
 }
 @end
 
@@ -49,12 +50,8 @@
     int view_height = (int)(cam_height*self.view.frame.size.width/cam_width);
     int offset = (self.view.frame.size.height - view_height)/2;
     
-    // Initial view
-    UIImage *imageFromFile = [UIImage imageNamed: @"Iris.png"];
-    UIImage *imageToDraw = [ViewController imageWithImage:imageFromFile scaledToSize:CGSizeMake(view_width, view_height)];
-    //imageView_ = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, offset, view_width, view_height)];
-    imageView_ = [[UIImageView alloc] initWithImage:imageToDraw];
-
+    imageView_ = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, offset, view_width, view_height)];
+    
     //[imageView_ setContentMode:UIViewContentModeScaleAspectFill]; (does not work)
     [self.view addSubview:imageView_]; // Add the view
     
@@ -94,6 +91,7 @@
     distCoeffs.at<double>(2) = 0;
     distCoeffs.at<double>(3) = 0;
     distCoeffs.at<double>(4) = 0;
+    first = true;
 
     [videoCamera start];
     
@@ -165,7 +163,26 @@
 //    cv::line( image, scene_proj_corners[1], scene_proj_corners[2], cv::Scalar(255, 0, 255), 1 );
 //    cv::line( image, scene_proj_corners[2], scene_proj_corners[3], cv::Scalar(255, 0, 255), 1 );
 //    cv::line( image, scene_proj_corners[3], scene_proj_corners[0], cv::Scalar(255, 0, 255), 1 );
-    [self drawCube:image:cube_proj_corners];
+    
+    for (int i = 0; i < 8; i++) {
+        std::cout<<cube_proj_corners[i]<<std::endl;
+        cv::circle(image, cube_proj_corners[i], 10, cv::Scalar(255, 0, 255));
+    }
+    for (int i=0; i<5; i+=4) {
+    cv::line(image, cube_proj_corners[0+i], cube_proj_corners[1+i], cv::Scalar(0, 0, 255), 1);
+    cv::line(image, cube_proj_corners[1+i], cube_proj_corners[2+i], cv::Scalar(0, 0, 255), 1);
+    cv::line(image, cube_proj_corners[2+i], cube_proj_corners[3+i], cv::Scalar(0, 0, 255), 1);
+    cv::line(image, cube_proj_corners[3+i], cube_proj_corners[0+i], cv::Scalar(0, 0, 255), 1);
+    }
+    
+    cv::line(image, cube_proj_corners[0], cube_proj_corners[4], cv::Scalar(0, 0, 255), 1);
+    cv::line(image, cube_proj_corners[1], cube_proj_corners[5], cv::Scalar(0, 0, 255), 1);
+    cv::line(image, cube_proj_corners[2], cube_proj_corners[6], cv::Scalar(0, 0, 255), 1);
+    cv::line(image, cube_proj_corners[3], cube_proj_corners[7], cv::Scalar(0, 0, 255), 1);
+    if(first){
+        first = false;
+    }
+    
     
     
     // Now apply Brisk features on the live camera
@@ -357,82 +374,4 @@ void drawCoordinate(cv::Mat &image,std::vector<cv::Point> validPoints,std::vecto
         cv::circle(image,proj_origin[0],9, cv::Scalar(255, 0, 0), 2);
     } 
 }
-
-- (void) drawCube: (cv::Mat &) image: (std::vector<cv::Point2f>) cube_proj_corners
-{
-    UIImage *imageToDraw = [UIImage imageNamed: @"Iris.png"];
-    cv::Mat matImageToDraw = [self cvMatFromUIImage:imageToDraw];
-    cv::Rect patch(0,0,88,88);
-    cv::Mat patchToDraw = cv::Mat(matImageToDraw, patch).clone();
-    
-#ifdef DEBUG
-    for (int i = 0; i < 8; i++) {
-        std::cout<<cube_proj_corners[i]<<std::endl;
-        cv::circle(image, cube_proj_corners[i], 10, cv::Scalar(255, 0, 255));
-    }
-#endif
-    cv::Point polyPoints[2][4];
-    for (int i=0; i<4; i++) {
-        polyPoints[0][i] = cv::Point((int)cube_proj_corners[i].x, (int)cube_proj_corners[i].y);
-        polyPoints[1][i] = cv::Point((int)cube_proj_corners[i+4].x, (int)cube_proj_corners[i+4].y);
-    }
-    const cv::Point* ppt[1] = { polyPoints[0] };
-    int npt[] = { 4 };
-    cv::fillPoly( image, ppt, npt, 1, cv::Scalar( 0, 0, 0 ), 8 );
-    
-    *ppt = { polyPoints[1] };
-    cv::fillPoly( image, ppt, npt, 1, cv::Scalar( 0, 0, 0 ), 8 );
-    
-    // draw wireframe
-    for (int i=0; i<5; i+=4) {
-        
-        cv::line(image, cube_proj_corners[0+i], cube_proj_corners[1+i], cv::Scalar(255, 0, 255), 1);
-        cv::line(image, cube_proj_corners[1+i], cube_proj_corners[2+i], cv::Scalar(0, 0, 255), 1);
-        cv::line(image, cube_proj_corners[2+i], cube_proj_corners[3+i], cv::Scalar(0, 0, 255), 1);
-        cv::line(image, cube_proj_corners[3+i], cube_proj_corners[0+i], cv::Scalar(0, 0, 255), 1);
-    }
-    
-    cv::line(image, cube_proj_corners[0], cube_proj_corners[4], cv::Scalar(0, 0, 255), 1);
-    cv::line(image, cube_proj_corners[1], cube_proj_corners[5], cv::Scalar(0, 0, 255), 1);
-    cv::line(image, cube_proj_corners[2], cube_proj_corners[6], cv::Scalar(0, 0, 255), 1);
-    cv::line(image, cube_proj_corners[3], cube_proj_corners[7], cv::Scalar(0, 0, 255), 1);
-    
-    
-}
-
-// Member functions for converting from cvMat to UIImage
-- (cv::Mat)cvMatFromUIImage:(UIImage *)image
-{
-    CGColorSpaceRef colorSpace = CGImageGetColorSpace(image.CGImage);
-    CGFloat cols = image.size.width;
-    CGFloat rows = image.size.height;
-    
-    cv::Mat cvMat(rows, cols, CV_8UC4); // 8 bits per component, 4 channels (color channels + alpha)
-    
-    CGContextRef contextRef = CGBitmapContextCreate(cvMat.data,                 // Pointer to  data
-                                                    cols,                       // Width of bitmap
-                                                    rows,                       // Height of bitmap
-                                                    8,                          // Bits per component
-                                                    cvMat.step[0],              // Bytes per row
-                                                    colorSpace,                 // Colorspace
-                                                    kCGImageAlphaNoneSkipLast |
-                                                    kCGBitmapByteOrderDefault); // Bitmap info flags
-    
-    CGContextDrawImage(contextRef, CGRectMake(0, 0, cols, rows), image.CGImage);
-    CGContextRelease(contextRef);
-    
-    return cvMat;
-}
-
-+ (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize {
-    //UIGraphicsBeginImageContext(newSize);
-    // In next line, pass 0.0 to use the current device's pixel scaling factor (and thus account for Retina resolution).
-    // Pass 1.0 to force exact pixel size.
-    UIGraphicsBeginImageContextWithOptions(newSize, NO, 0.0);
-    [image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
-    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return newImage;
-}
-
 @end
