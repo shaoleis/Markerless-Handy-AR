@@ -8,6 +8,8 @@
 
 
 #import "ViewController.h"
+#import <GLKit/GLKit.h>
+
 
 #ifdef __cplusplus
 #include "opencv2/features2d/features2d.hpp"
@@ -397,8 +399,9 @@ void drawCoordinate(cv::Mat &image,std::vector<cv::Point> validPoints,std::vecto
     cv::line(image, cube_proj_corners[2], cube_proj_corners[6], cv::Scalar(0, 0, 255), 1);
     cv::line(image, cube_proj_corners[3], cube_proj_corners[7], cv::Scalar(0, 0, 255), 1);
     
-    
 }
+
+
 
 // Member functions for converting from cvMat to UIImage
 - (cv::Mat)cvMatFromUIImage:(UIImage *)image

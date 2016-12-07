@@ -95,6 +95,9 @@
     ARView         *glView;
     VirtualEnvironment *virtualEnvironment;
     ARGL_CONTEXT_SETTINGS_REF arglContextSettings;
+    
+    //add
+    UIImageView *imageView_;
 }
 
 @synthesize glView, virtualEnvironment, markers;
@@ -150,6 +153,28 @@
     running = FALSE;
     videoPaused = FALSE;
     runLoopTimePrevious = CFAbsoluteTimeGetCurrent();
+    
+    //add
+    float cam_width = 720; float cam_height = 1280;
+    
+    // Take into account size of camera input
+    int view_width = self.view.frame.size.width;
+    int view_height = (int)(cam_height*self.view.frame.size.width/cam_width);
+    int offset = (self.view.frame.size.height - view_height)/2;
+    
+    imageView_ = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, offset, view_width, view_height)];
+    //[imageView_ setContentMode:UIViewContentModeScaleAspectFill]; (does not work)
+    [self.view addSubview:imageView_]; // Add the view
+    self.videoCamera = [[CvVideoCamera alloc] initWithParentView:imageView_];
+    self.videoCamera.delegate = self;
+    self.videoCamera.defaultAVCaptureDevicePosition = AVCaptureDevicePositionBack;
+    self.videoCamera.defaultAVCaptureVideoOrientation = AVCaptureVideoOrientationPortrait;
+    self.videoCamera.defaultFPS = 30; // Set the frame rate
+    self.videoCamera.grayscaleMode = YES; // Get grayscale
+    self.videoCamera.rotateVideo = YES; // Rotate video so everything looks correct
+    self.videoCamera.defaultAVCaptureSessionPreset = AVCaptureSessionPreset1280x720;
+    // Finally show the output
+    [self.videoCamera start];
 }
 
 - (void)viewDidAppear:(BOOL)animated

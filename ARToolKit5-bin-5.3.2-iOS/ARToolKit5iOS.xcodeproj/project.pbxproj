@@ -925,10 +925,29 @@
 		4AF9712B1B5F5709001BFEB5 /* timers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4AF9706A1B5F5708001BFEB5 /* timers.cpp */; };
 		4AF9712D1B5F5709001BFEB5 /* freak.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4AF970771B5F5708001BFEB5 /* freak.cpp */; };
 		4AF9712E1B5F5709001BFEB5 /* hough_similarity_voting.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4AF9707A1B5F5708001BFEB5 /* hough_similarity_voting.cpp */; };
-		6C11235D1DF4EAFC006A334F /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C11235C1DF4EAFC006A334F /* opencv2.framework */; };
-		6C11235E1DF4EAFC006A334F /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C11235C1DF4EAFC006A334F /* opencv2.framework */; };
-		6C1123601DF4F5C5006A334F /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C11235F1DF4F5C5006A334F /* opencv2.framework */; };
-		6C1123611DF4F5C5006A334F /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C11235F1DF4F5C5006A334F /* opencv2.framework */; };
+		6CC1C85C1DF7176B0036BFB7 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CC1C85B1DF7176B0036BFB7 /* opencv2.framework */; };
+		6CC1C85D1DF7176B0036BFB7 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CC1C85B1DF7176B0036BFB7 /* opencv2.framework */; };
+		6CC1C85E1DF7176B0036BFB7 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CC1C85B1DF7176B0036BFB7 /* opencv2.framework */; };
+		6CC1C85F1DF7176B0036BFB7 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CC1C85B1DF7176B0036BFB7 /* opencv2.framework */; };
+		6CC1C8601DF7176B0036BFB7 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CC1C85B1DF7176B0036BFB7 /* opencv2.framework */; };
+		6CC1C8611DF7176B0036BFB7 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CC1C85B1DF7176B0036BFB7 /* opencv2.framework */; };
+		6CC1C8621DF7176B0036BFB7 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CC1C85B1DF7176B0036BFB7 /* opencv2.framework */; };
+		6CC1C8631DF7176B0036BFB7 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CC1C85B1DF7176B0036BFB7 /* opencv2.framework */; };
+		6CC1C8641DF7176B0036BFB7 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CC1C85B1DF7176B0036BFB7 /* opencv2.framework */; };
+		6CC1C8651DF7176B0036BFB7 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CC1C85B1DF7176B0036BFB7 /* opencv2.framework */; };
+		6CC1C8661DF7176B0036BFB7 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CC1C85B1DF7176B0036BFB7 /* opencv2.framework */; };
+		6CC1C8671DF7176B0036BFB7 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CC1C85B1DF7176B0036BFB7 /* opencv2.framework */; };
+		6CC1C8681DF7176B0036BFB7 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CC1C85B1DF7176B0036BFB7 /* opencv2.framework */; };
+		6CC1C8691DF7176B0036BFB7 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CC1C85B1DF7176B0036BFB7 /* opencv2.framework */; };
+		6CC1C86A1DF7176B0036BFB7 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CC1C85B1DF7176B0036BFB7 /* opencv2.framework */; };
+		6CC1C86B1DF7176B0036BFB7 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CC1C85B1DF7176B0036BFB7 /* opencv2.framework */; };
+		6CC1C86C1DF7176B0036BFB7 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CC1C85B1DF7176B0036BFB7 /* opencv2.framework */; };
+		6CC1C86D1DF7176B0036BFB7 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CC1C85B1DF7176B0036BFB7 /* opencv2.framework */; };
+		6CC1C8701DF719130036BFB7 /* libc++.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CC1C86F1DF719130036BFB7 /* libc++.1.dylib */; };
+		6CC1C8711DF719370036BFB7 /* libc++.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CC1C86F1DF719130036BFB7 /* libc++.1.dylib */; };
+		6CC1C8721DF71D070036BFB7 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A3543441683173C0083B43E /* AssetsLibrary.framework */; };
+		6CC1C8731DF71D250036BFB7 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A3543441683173C0083B43E /* AssetsLibrary.framework */; };
+		6CC1C8751DF71D2B0036BFB7 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CC1C8741DF71D2B0036BFB7 /* CoreImage.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -3300,8 +3319,9 @@
 		4AF9711E1B5F5709001BFEB5 /* point.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = point.h; sourceTree = "<group>"; };
 		4AF9711F1B5F5709001BFEB5 /* kpmPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kpmPrivate.h; sourceTree = "<group>"; };
 		4AF9714D1B5F58A6001BFEB5 /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
-		6C11235C1DF4EAFC006A334F /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
-		6C11235F1DF4F5C5006A334F /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
+		6CC1C85B1DF7176B0036BFB7 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
+		6CC1C86F1DF719130036BFB7 /* libc++.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.1.dylib"; path = "../../../../../../../../usr/lib/libc++.1.dylib"; sourceTree = "<group>"; };
+		6CC1C8741DF71D2B0036BFB7 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		78BB3E5E08E482F400D7CA2D /* arMultiFreeConfig.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; path = arMultiFreeConfig.c; sourceTree = "<group>"; };
 		78BB3E5F08E482F400D7CA2D /* arMultiGetTransMat.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; path = arMultiGetTransMat.c; sourceTree = "<group>"; };
 		78BB3E6008E482F400D7CA2D /* arMultiGetTransMatStereo.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; path = arMultiGetTransMatStereo.c; sourceTree = "<group>"; };
@@ -3352,6 +3372,7 @@
 				4A875C901B6051A0002A00A1 /* libosgdb_stl.a in Frameworks */,
 				4A875C5B1B6051A0002A00A1 /* libosgdb_deprecated_osgfx.a in Frameworks */,
 				4A1302D415BDFF14003A441C /* libosgAnimation.a in Frameworks */,
+				6CC1C86C1DF7176B0036BFB7 /* opencv2.framework in Frameworks */,
 				4A875C531B6051A0002A00A1 /* libosgdb_avfoundation.a in Frameworks */,
 				4A1302D515BDFF14003A441C /* libosgDB.a in Frameworks */,
 				4A875C601B6051A0002A00A1 /* libosgdb_deprecated_osgtext.a in Frameworks */,
@@ -3466,6 +3487,7 @@
 				4A941D301AE5DCEF000FA802 /* libKPM.a in Frameworks */,
 				4A13032415BDFF17003A441C /* OpenGLES.framework in Frameworks */,
 				4A13032515BDFF17003A441C /* Foundation.framework in Frameworks */,
+				6CC1C86B1DF7176B0036BFB7 /* opencv2.framework in Frameworks */,
 				4A13032615BDFF17003A441C /* UIKit.framework in Frameworks */,
 				4A13032715BDFF17003A441C /* AVFoundation.framework in Frameworks */,
 				4A13032815BDFF17003A441C /* CoreMedia.framework in Frameworks */,
@@ -3484,6 +3506,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CC1C85F1DF7176B0036BFB7 /* opencv2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3491,6 +3514,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CC1C8751DF71D2B0036BFB7 /* CoreImage.framework in Frameworks */,
+				6CC1C8731DF71D250036BFB7 /* AssetsLibrary.framework in Frameworks */,
+				6CC1C8711DF719370036BFB7 /* libc++.1.dylib in Frameworks */,
 				4AF6B87E13B380EA00F983E7 /* libARgsub_es.a in Frameworks */,
 				4AF6B88013B380EA00F983E7 /* libARMulti.a in Frameworks */,
 				4AF6B88213B380EA00F983E7 /* libEden.a in Frameworks */,
@@ -3503,7 +3529,7 @@
 				4A2F72F4117840A600F35FA7 /* Foundation.framework in Frameworks */,
 				4A2F72F5117840A600F35FA7 /* UIKit.framework in Frameworks */,
 				4A311CF6119C95F6004E0867 /* AVFoundation.framework in Frameworks */,
-				6C11235E1DF4EAFC006A334F /* opencv2.framework in Frameworks */,
+				6CC1C8681DF7176B0036BFB7 /* opencv2.framework in Frameworks */,
 				4A311CF7119C95F7004E0867 /* CoreMedia.framework in Frameworks */,
 				4A311CF8119C95F7004E0867 /* CoreVideo.framework in Frameworks */,
 				4A941D221AE5DCDF000FA802 /* libAR.a in Frameworks */,
@@ -3534,6 +3560,7 @@
 				4AF6B88F13B3812A00F983E7 /* libEden.a in Frameworks */,
 				4A089BC8133C93DE00974D65 /* libfreetype.a in Frameworks */,
 				4A089BC9133C93DE00974D65 /* libOpenThreads.a in Frameworks */,
+				6CC1C8691DF7176B0036BFB7 /* opencv2.framework in Frameworks */,
 				4A875C1D1B60519E002A00A1 /* libosgdb_gz.a in Frameworks */,
 				4A875C191B60519E002A00A1 /* libosgdb_dot.a in Frameworks */,
 				4A875C121B60519E002A00A1 /* libosgdb_deprecated_osgshadow.a in Frameworks */,
@@ -3645,6 +3672,7 @@
 				4A4BAAD51B745E580012B77D /* libARgsub_es2.a in Frameworks */,
 				4A4BAAAD1B745B210012B77D /* libjpeg.a in Frameworks */,
 				4A4BAAAE1B745B210012B77D /* libARvideo.a in Frameworks */,
+				6CC1C86D1DF7176B0036BFB7 /* opencv2.framework in Frameworks */,
 				4A4BAAAF1B745B210012B77D /* QuartzCore.framework in Frameworks */,
 				4A4BAAB01B745B210012B77D /* CoreGraphics.framework in Frameworks */,
 				4A4BAAB21B745B210012B77D /* OpenGLES.framework in Frameworks */,
@@ -3673,6 +3701,7 @@
 				4A47F9DC116E641C00FC577E /* CoreGraphics.framework in Frameworks */,
 				4A47F828116E638B00FC577E /* OpenGLES.framework in Frameworks */,
 				4A47F816116E638800FC577E /* Foundation.framework in Frameworks */,
+				6CC1C8671DF7176B0036BFB7 /* opencv2.framework in Frameworks */,
 				4A47F817116E638800FC577E /* UIKit.framework in Frameworks */,
 				4AC2E637118ED63E00CC4F55 /* AVFoundation.framework in Frameworks */,
 				4AC2E639118ED63E00CC4F55 /* CoreMedia.framework in Frameworks */,
@@ -3697,6 +3726,7 @@
 				4A5BAA7F13D82BC000C8D5E7 /* OpenGLES.framework in Frameworks */,
 				4A5BAA8013D82BC000C8D5E7 /* Foundation.framework in Frameworks */,
 				4A5BAA8113D82BC000C8D5E7 /* UIKit.framework in Frameworks */,
+				6CC1C86A1DF7176B0036BFB7 /* opencv2.framework in Frameworks */,
 				4A5BAA8213D82BC000C8D5E7 /* AVFoundation.framework in Frameworks */,
 				4A5BAA8313D82BC000C8D5E7 /* CoreMedia.framework in Frameworks */,
 				4A941D241AE5DCE0000FA802 /* libAR.a in Frameworks */,
@@ -3709,6 +3739,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CC1C8601DF7176B0036BFB7 /* opencv2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3716,6 +3747,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CC1C85D1DF7176B0036BFB7 /* opencv2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3723,6 +3755,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CC1C8631DF7176B0036BFB7 /* opencv2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3730,6 +3763,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CC1C8641DF7176B0036BFB7 /* opencv2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3737,6 +3771,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CC1C8651DF7176B0036BFB7 /* opencv2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3744,6 +3779,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CC1C85E1DF7176B0036BFB7 /* opencv2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3751,6 +3787,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CC1C8621DF7176B0036BFB7 /* opencv2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3758,6 +3795,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CC1C8721DF71D070036BFB7 /* AssetsLibrary.framework in Frameworks */,
+				6CC1C8701DF719130036BFB7 /* libc++.1.dylib in Frameworks */,
 				4A941D201AE5DCDF000FA802 /* libAR.a in Frameworks */,
 				4A941D271AE5DCE5000FA802 /* libARICP.a in Frameworks */,
 				4AEAEBEA17A7453300F61E33 /* libARgsub_es.a in Frameworks */,
@@ -3768,7 +3807,7 @@
 				4AEAEBD617A744AA00F61E33 /* CoreGraphics.framework in Frameworks */,
 				4AEAEBD717A744AA00F61E33 /* OpenGLES.framework in Frameworks */,
 				4AEAEBD817A744AA00F61E33 /* Foundation.framework in Frameworks */,
-				6C1123611DF4F5C5006A334F /* opencv2.framework in Frameworks */,
+				6CC1C8661DF7176B0036BFB7 /* opencv2.framework in Frameworks */,
 				4AEAEBD917A744AA00F61E33 /* UIKit.framework in Frameworks */,
 				4AEAEBDA17A744AA00F61E33 /* AVFoundation.framework in Frameworks */,
 				4AEAEBDB17A744AA00F61E33 /* CoreMedia.framework in Frameworks */,
@@ -3781,8 +3820,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C1123601DF4F5C5006A334F /* opencv2.framework in Frameworks */,
-				6C11235D1DF4EAFC006A334F /* opencv2.framework in Frameworks */,
+				6CC1C85C1DF7176B0036BFB7 /* opencv2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3790,6 +3828,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CC1C8611DF7176B0036BFB7 /* opencv2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3994,7 +4033,6 @@
 		4A2F73021178414800F35FA7 /* ARApp2 */ = {
 			isa = PBXGroup;
 			children = (
-				6C11235C1DF4EAFC006A334F /* opencv2.framework */,
 				4A2F7404117845AD00F35FA7 /* Classes */,
 				4A2F7405117845C200F35FA7 /* Other source */,
 				4A2F7406117845D400F35FA7 /* Resources */,
@@ -5355,7 +5393,6 @@
 		4AEAEB8E17A743F300F61E33 /* ARAppES1 */ = {
 			isa = PBXGroup;
 			children = (
-				6C11235F1DF4F5C5006A334F /* opencv2.framework */,
 				4AEAEB8F17A7441500F61E33 /* Classes */,
 				4AEAEB9017A7441D00F61E33 /* Other source */,
 				4AEAEB9117A7442500F61E33 /* Resources */,
@@ -6440,6 +6477,15 @@
 			path = utils;
 			sourceTree = "<group>";
 		};
+		6CC1C86E1DF719130036BFB7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6CC1C8741DF71D2B0036BFB7 /* CoreImage.framework */,
+				6CC1C86F1DF719130036BFB7 /* libc++.1.dylib */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		78BB3DD208E482DA00D7CA2D = {
 			isa = PBXGroup;
 			children = (
@@ -6455,6 +6501,7 @@
 				4A77EBA21162425300E4C0D2 /* Xcode */,
 				78BBCC8908E4A79900AEE575 /* System Frameworks & Libraries */,
 				78BB3F8708E486DB00D7CA2D /* Products */,
+				6CC1C86E1DF719130036BFB7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -6640,6 +6687,7 @@
 		78BBCC8908E4A79900AEE575 /* System Frameworks & Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				6CC1C85B1DF7176B0036BFB7 /* opencv2.framework */,
 				4A8393B5152163C000D8FE60 /* Accelerate.framework */,
 				4A3543441683173C0083B43E /* AssetsLibrary.framework */,
 				4A5BAA8F13D82DFD00C8D5E7 /* AudioToolbox.framework */,
@@ -8440,6 +8488,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = examples/ARAppNFTOSG/ARAppNFTOSG_Prefix.pch;
@@ -8459,6 +8511,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = examples/ARAppNFTOSG/ARAppNFTOSG_Prefix.pch;
@@ -8479,6 +8535,10 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = examples/ARAppOSG/dist.plist;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = examples/ARAppNFTOSG/ARAppNFTOSG_Prefix.pch;
@@ -8500,6 +8560,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = examples/ARAppNFT/ARAppNFT_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -8522,6 +8586,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = examples/ARAppNFT/ARAppNFT_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -8545,6 +8613,10 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = examples/ARApp2/dist.plist;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = examples/ARAppNFT/ARAppNFT_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -8570,6 +8642,10 @@
 			buildSettings = {
 				DEPLOYMENT_LOCATION = YES;
 				DSTROOT = "$(SRCROOT)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INSTALL_PATH = /lib;
 				PRODUCT_NAME = ARgsub_es;
 				WARNING_CFLAGS = (
@@ -8585,6 +8661,10 @@
 			buildSettings = {
 				DEPLOYMENT_LOCATION = YES;
 				DSTROOT = "$(SRCROOT)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INSTALL_PATH = /lib;
 				PRODUCT_NAME = ARgsub_es;
 				WARNING_CFLAGS = (
@@ -8628,10 +8708,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = JAZG4945VU;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/examples/ARApp2",
-				);
+				FRAMEWORK_SEARCH_PATHS = "/Users/shaoleishen/Documents/Fall\\ 2016/16623\\ Advanced\\ Computer\\ Vision\\ Apps/proj/MarkerlessAR/ARToolKit5-bin-5.3.2-iOS";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = examples/ARApp2/ARApp2_Prefix.pch;
 				INFOPLIST_FILE = "examples/ARApp2/ARApp2-Info.plist";
@@ -8647,10 +8724,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = JAZG4945VU;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/examples/ARApp2",
-				);
+				FRAMEWORK_SEARCH_PATHS = "/Users/shaoleishen/Documents/Fall\\ 2016/16623\\ Advanced\\ Computer\\ Vision\\ Apps/proj/MarkerlessAR/ARToolKit5-bin-5.3.2-iOS";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = examples/ARApp2/ARApp2_Prefix.pch;
 				INFOPLIST_FILE = "examples/ARApp2/ARApp2-Info.plist";
@@ -8667,10 +8741,7 @@
 				CODE_SIGN_ENTITLEMENTS = examples/ARApp2/dist.plist;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				DEVELOPMENT_TEAM = JAZG4945VU;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/examples/ARApp2",
-				);
+				FRAMEWORK_SEARCH_PATHS = "/Users/shaoleishen/Documents/Fall\\ 2016/16623\\ Advanced\\ Computer\\ Vision\\ Apps/proj/MarkerlessAR/ARToolKit5-bin-5.3.2-iOS";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = examples/ARApp2/ARApp2_Prefix.pch;
 				INFOPLIST_FILE = "examples/ARApp2/ARApp2-Info.plist";
@@ -8686,6 +8757,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = examples/ARAppOSG/ARAppOSG_Prefix.pch;
@@ -8701,6 +8776,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = examples/ARAppOSG/ARAppOSG_Prefix.pch;
@@ -8717,6 +8796,10 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = examples/ARAppOSG/dist.plist;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = examples/ARAppOSG/ARAppOSG_Prefix.pch;
@@ -8735,6 +8818,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = examples/ARAppCameraTest/ARAppCameraTest_Prefix.pch;
 				INFOPLIST_FILE = "examples/ARAppCameraTest/ARAppCameraTest-Info.plist";
@@ -8750,6 +8837,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = examples/ARAppCameraTest/ARAppCameraTest_Prefix.pch;
 				INFOPLIST_FILE = "examples/ARAppCameraTest/ARAppCameraTest-Info.plist";
@@ -8766,6 +8857,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = examples/ARAppCameraTest/dist.plist;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = examples/ARAppCameraTest/ARAppCameraTest_Prefix.pch;
 				INFOPLIST_FILE = "examples/ARAppCameraTest/ARAppCameraTest-Info.plist";
@@ -8781,6 +8876,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = examples/ARApp/ARApp_Prefix.pch;
 				INFOPLIST_FILE = "examples/ARApp/ARApp-Info.plist";
@@ -8794,6 +8893,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = examples/ARApp/ARApp_Prefix.pch;
 				INFOPLIST_FILE = "examples/ARApp/ARApp-Info.plist";
@@ -8808,6 +8911,10 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = examples/ARApp/dist.plist;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = examples/ARApp/ARApp_Prefix.pch;
 				INFOPLIST_FILE = "examples/ARApp/ARApp-Info.plist";
@@ -8823,6 +8930,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = examples/ARAppMovie/ARAppMovie_Prefix.pch;
 				INFOPLIST_FILE = "examples/ARAppMovie/ARAppMovie-Info.plist";
@@ -8836,6 +8947,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = examples/ARAppMovie/ARAppMovie_Prefix.pch;
 				INFOPLIST_FILE = "examples/ARAppMovie/ARAppMovie-Info.plist";
@@ -8850,6 +8965,10 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = examples/ARAppMovie/dist.plist;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = examples/ARAppMovie/ARAppMovie_Prefix.pch;
 				INFOPLIST_FILE = "examples/ARAppMovie/ARAppMovie-Info.plist";
@@ -8866,6 +8985,10 @@
 			buildSettings = {
 				DEPLOYMENT_LOCATION = YES;
 				DSTROOT = "$(SRCROOT)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INSTALL_PATH = /lib;
 				PRODUCT_NAME = ARgsub_es2;
 				WARNING_CFLAGS = (
@@ -8881,6 +9004,10 @@
 			buildSettings = {
 				DEPLOYMENT_LOCATION = YES;
 				DSTROOT = "$(SRCROOT)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INSTALL_PATH = /lib;
 				PRODUCT_NAME = ARgsub_es2;
 				WARNING_CFLAGS = (
@@ -8896,6 +9023,10 @@
 			buildSettings = {
 				DEPLOYMENT_LOCATION = YES;
 				DSTROOT = "$(SRCROOT)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INSTALL_PATH = /lib;
 				PRODUCT_NAME = ARgsub_es2;
 				SKIP_INSTALL = YES;
@@ -8912,6 +9043,10 @@
 			buildSettings = {
 				DEPLOYMENT_LOCATION = YES;
 				DSTROOT = "$(SRCROOT)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INSTALL_PATH = /lib;
 				PRODUCT_NAME = ARICP;
 				WARNING_CFLAGS = (
@@ -8927,6 +9062,10 @@
 			buildSettings = {
 				DEPLOYMENT_LOCATION = YES;
 				DSTROOT = "$(SRCROOT)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INSTALL_PATH = /lib;
 				PRODUCT_NAME = ARICP;
 				WARNING_CFLAGS = (
@@ -8942,6 +9081,10 @@
 			buildSettings = {
 				DEPLOYMENT_LOCATION = YES;
 				DSTROOT = "$(SRCROOT)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INSTALL_PATH = /lib;
 				PRODUCT_NAME = ARICP;
 				SKIP_INSTALL = YES;
@@ -8958,6 +9101,10 @@
 			buildSettings = {
 				DEPLOYMENT_LOCATION = YES;
 				DSTROOT = "$(SRCROOT)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INSTALL_PATH = /lib;
 				PRODUCT_NAME = AR2;
 				WARNING_CFLAGS = (
@@ -8973,6 +9120,10 @@
 			buildSettings = {
 				DEPLOYMENT_LOCATION = YES;
 				DSTROOT = "$(SRCROOT)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INSTALL_PATH = /lib;
 				PRODUCT_NAME = AR2;
 				WARNING_CFLAGS = (
@@ -8988,6 +9139,10 @@
 			buildSettings = {
 				DEPLOYMENT_LOCATION = YES;
 				DSTROOT = "$(SRCROOT)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INSTALL_PATH = /lib;
 				PRODUCT_NAME = AR2;
 				SKIP_INSTALL = YES;
@@ -9004,6 +9159,10 @@
 			buildSettings = {
 				DEPLOYMENT_LOCATION = YES;
 				DSTROOT = "$(SRCROOT)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				HEADER_SEARCH_PATHS = (
 					include/ios7,
 					include,
@@ -9025,6 +9184,10 @@
 			buildSettings = {
 				DEPLOYMENT_LOCATION = YES;
 				DSTROOT = "$(SRCROOT)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				HEADER_SEARCH_PATHS = (
 					include/ios7,
 					include,
@@ -9046,6 +9209,10 @@
 			buildSettings = {
 				DEPLOYMENT_LOCATION = YES;
 				DSTROOT = "$(SRCROOT)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				HEADER_SEARCH_PATHS = (
 					include/ios7,
 					include,
@@ -9068,6 +9235,10 @@
 			buildSettings = {
 				DEPLOYMENT_LOCATION = YES;
 				DSTROOT = "$(SRCROOT)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INSTALL_PATH = /lib;
 				PRODUCT_NAME = ARUtil;
 				WARNING_CFLAGS = (
@@ -9083,6 +9254,10 @@
 			buildSettings = {
 				DEPLOYMENT_LOCATION = YES;
 				DSTROOT = "$(SRCROOT)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INSTALL_PATH = /lib;
 				PRODUCT_NAME = ARUtil;
 				WARNING_CFLAGS = (
@@ -9098,6 +9273,10 @@
 			buildSettings = {
 				DEPLOYMENT_LOCATION = YES;
 				DSTROOT = "$(SRCROOT)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INSTALL_PATH = /lib;
 				PRODUCT_NAME = ARUtil;
 				SKIP_INSTALL = YES;
@@ -9114,6 +9293,10 @@
 			buildSettings = {
 				DEPLOYMENT_LOCATION = YES;
 				DSTROOT = "$(SRCROOT)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INSTALL_PATH = /lib;
 				PRODUCT_NAME = ARvideo;
 				WARNING_CFLAGS = (
@@ -9129,6 +9312,10 @@
 			buildSettings = {
 				DEPLOYMENT_LOCATION = YES;
 				DSTROOT = "$(SRCROOT)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INSTALL_PATH = /lib;
 				PRODUCT_NAME = ARvideo;
 				WARNING_CFLAGS = (
@@ -9144,6 +9331,10 @@
 			buildSettings = {
 				DEPLOYMENT_LOCATION = YES;
 				DSTROOT = "$(SRCROOT)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INSTALL_PATH = /lib;
 				PRODUCT_NAME = ARvideo;
 				SKIP_INSTALL = YES;
@@ -9223,6 +9414,10 @@
 			buildSettings = {
 				DEPLOYMENT_LOCATION = YES;
 				DSTROOT = "$(SRCROOT)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INSTALL_PATH = /lib;
 				PRODUCT_NAME = ARgsub_es;
 				SKIP_INSTALL = YES;
@@ -9239,6 +9434,10 @@
 			buildSettings = {
 				DEPLOYMENT_LOCATION = YES;
 				DSTROOT = "$(SRCROOT)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INSTALL_PATH = /lib;
 				PRODUCT_NAME = ARMulti;
 				SKIP_INSTALL = YES;
@@ -9310,6 +9509,10 @@
 			buildSettings = {
 				DEPLOYMENT_LOCATION = YES;
 				DSTROOT = "$(SRCROOT)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INSTALL_PATH = /lib;
 				PRODUCT_NAME = ARosg;
 				WARNING_CFLAGS = (
@@ -9325,6 +9528,10 @@
 			buildSettings = {
 				DEPLOYMENT_LOCATION = YES;
 				DSTROOT = "$(SRCROOT)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INSTALL_PATH = /lib;
 				PRODUCT_NAME = ARosg;
 				WARNING_CFLAGS = (
@@ -9340,6 +9547,10 @@
 			buildSettings = {
 				DEPLOYMENT_LOCATION = YES;
 				DSTROOT = "$(SRCROOT)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INSTALL_PATH = /lib;
 				PRODUCT_NAME = ARosg;
 				SKIP_INSTALL = YES;
@@ -9373,6 +9584,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/examples/ARAppES1",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = examples/ARAppES1/ARAppES1_Prefix.pch;
@@ -9391,6 +9603,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/examples/ARAppES1",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = examples/ARAppES1/ARAppES1_Prefix.pch;
@@ -9410,6 +9623,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/examples/ARAppES1",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = examples/ARAppES1/ARAppES1_Prefix.pch;
@@ -9431,6 +9645,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/examples/ARApp2",
 					"$(PROJECT_DIR)/examples/ARAppES1",
+					"$(PROJECT_DIR)",
 				);
 				INSTALL_PATH = /lib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -9451,6 +9666,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/examples/ARApp2",
 					"$(PROJECT_DIR)/examples/ARAppES1",
+					"$(PROJECT_DIR)",
 				);
 				INSTALL_PATH = /lib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -9471,6 +9687,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/examples/ARApp2",
 					"$(PROJECT_DIR)/examples/ARAppES1",
+					"$(PROJECT_DIR)",
 				);
 				INSTALL_PATH = /lib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -9568,6 +9785,10 @@
 			buildSettings = {
 				DEPLOYMENT_LOCATION = YES;
 				DSTROOT = "$(SRCROOT)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INSTALL_PATH = /lib;
 				PRODUCT_NAME = ARMulti;
 				WARNING_CFLAGS = (
@@ -9583,6 +9804,10 @@
 			buildSettings = {
 				DEPLOYMENT_LOCATION = YES;
 				DSTROOT = "$(SRCROOT)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INSTALL_PATH = /lib;
 				PRODUCT_NAME = ARMulti;
 				WARNING_CFLAGS = (

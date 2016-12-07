@@ -8,10 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import <opencv2/highgui/ios.h>
+#import <OpenGLES/EAGL.h>
+#import <OpenGLES/gltypes.h>
+#import <OpenGLES/ES1/gl.h>
 
 #ifdef __cplusplus
 #import <opencv2/opencv.hpp>
 #import "opencv2/highgui/ios.h"
+#include "../include/glStateCache.h"
 #endif
 
 // Slightly changed things here to employ the CvVideoCameraDelegate

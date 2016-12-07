@@ -64,7 +64,10 @@
 #import "../ARAppCore/VirtualEnvironment.h"
 #import <AR/sys/CameraVideo.h>
 
-@interface ARViewController : UIViewController <CameraVideoTookPictureDelegate> {
+#import <opencv2/highgui/ios.h>
+
+@interface ARViewController : UIViewController <CameraVideoTookPictureDelegate, CvVideoCameraDelegate> {
+    CvVideoCamera *videoCamera; // OpenCV class for accessing the camera
 }
 
 - (IBAction)start;
@@ -88,5 +91,8 @@
 @property (nonatomic) NSInteger runLoopInterval;
 
 @property (nonatomic) BOOL markersHaveWhiteBorders;
+
+// Declare internal property of videoCamera
+@property (nonatomic, retain) CvVideoCamera *videoCamera;
 
 @end

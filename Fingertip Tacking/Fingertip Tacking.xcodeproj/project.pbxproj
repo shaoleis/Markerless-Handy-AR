@@ -25,6 +25,10 @@
 		4FDB46701DF3984F00FFC9AB /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FDB466F1DF3984F00FFC9AB /* CoreImage.framework */; };
 		4FDB46721DF3985C00FFC9AB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FDB46711DF3985C00FFC9AB /* QuartzCore.framework */; };
 		6C06D1EE1DF65715002F8643 /* Iris.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C06D1ED1DF65715002F8643 /* Iris.png */; };
+		6CC1C8781DF72DA40036BFB7 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CC1C8771DF72DA40036BFB7 /* OpenGLES.framework */; };
+		6CC1C87A1DF72DAF0036BFB7 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CC1C8791DF72DAF0036BFB7 /* OpenGLES.framework */; };
+		6CC1C87E1DF74BA70036BFB7 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CC1C87D1DF74BA70036BFB7 /* GLKit.framework */; };
+		6CC1C8801DF74BAE0036BFB7 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CC1C87F1DF74BAE0036BFB7 /* GLKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +76,10 @@
 		4FDB466F1DF3984F00FFC9AB /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreImage.framework; sourceTree = DEVELOPER_DIR; };
 		4FDB46711DF3985C00FFC9AB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
 		6C06D1ED1DF65715002F8643 /* Iris.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Iris.png; sourceTree = "<group>"; };
+		6CC1C8771DF72DA40036BFB7 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		6CC1C8791DF72DAF0036BFB7 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OpenGLES.framework; sourceTree = "<group>"; };
+		6CC1C87D1DF74BA70036BFB7 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		6CC1C87F1DF74BAE0036BFB7 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GLKit.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,13 +87,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CC1C87E1DF74BA70036BFB7 /* GLKit.framework in Frameworks */,
+				6CC1C8781DF72DA40036BFB7 /* OpenGLES.framework in Frameworks */,
 				4FDB46721DF3985C00FFC9AB /* QuartzCore.framework in Frameworks */,
 				4FDB46681DF3982200FFC9AB /* CoreMedia.framework in Frameworks */,
 				4FDB46661DF3981500FFC9AB /* AVFoundation.framework in Frameworks */,
 				4FDB46701DF3984F00FFC9AB /* CoreImage.framework in Frameworks */,
+				6CC1C87A1DF72DAF0036BFB7 /* OpenGLES.framework in Frameworks */,
 				4FDB466C1DF3983A00FFC9AB /* Accelerate.framework in Frameworks */,
 				4FDB46641DF3973700FFC9AB /* opencv2.framework in Frameworks */,
 				4FDB466A1DF3982E00FFC9AB /* AssetsLibrary.framework in Frameworks */,
+				6CC1C8801DF74BAE0036BFB7 /* GLKit.framework in Frameworks */,
 				4FDB466E1DF3984400FFC9AB /* CoreVideo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -110,6 +122,8 @@
 		4FDB46241DF396ED00FFC9AB = {
 			isa = PBXGroup;
 			children = (
+				6CC1C87F1DF74BAE0036BFB7 /* GLKit.framework */,
+				6CC1C8791DF72DAF0036BFB7 /* OpenGLES.framework */,
 				4FDB46711DF3985C00FFC9AB /* QuartzCore.framework */,
 				4FDB466F1DF3984F00FFC9AB /* CoreImage.framework */,
 				4FDB466D1DF3984400FFC9AB /* CoreVideo.framework */,
@@ -122,6 +136,7 @@
 				4FDB46541DF396EE00FFC9AB /* Fingertip TackingUITests */,
 				4FDB462E1DF396ED00FFC9AB /* Products */,
 				4FDB46631DF3973700FFC9AB /* opencv2.framework */,
+				6CC1C8761DF72DA40036BFB7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -178,6 +193,15 @@
 				4FDB46571DF396EE00FFC9AB /* Info.plist */,
 			);
 			path = "Fingertip TackingUITests";
+			sourceTree = "<group>";
+		};
+		6CC1C8761DF72DA40036BFB7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6CC1C87D1DF74BA70036BFB7 /* GLKit.framework */,
+				6CC1C8771DF72DA40036BFB7 /* OpenGLES.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -478,6 +502,7 @@
 				INFOPLIST_FILE = "Fingertip Tacking/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "-6623.Fingertip-Tacking-shaoleis";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -496,6 +521,7 @@
 				INFOPLIST_FILE = "Fingertip Tacking/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "-6623.Fingertip-Tacking-shaoleis";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
