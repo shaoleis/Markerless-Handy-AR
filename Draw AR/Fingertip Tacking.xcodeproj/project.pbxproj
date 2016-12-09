@@ -12,7 +12,6 @@
 		4FDB46351DF396ED00FFC9AB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FDB46341DF396ED00FFC9AB /* AppDelegate.m */; };
 		4FDB46381DF396ED00FFC9AB /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4FDB46371DF396ED00FFC9AB /* ViewController.mm */; };
 		4FDB463B1DF396EE00FFC9AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FDB46391DF396EE00FFC9AB /* Main.storyboard */; };
-		4FDB463D1DF396EE00FFC9AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FDB463C1DF396EE00FFC9AB /* Assets.xcassets */; };
 		4FDB46401DF396EE00FFC9AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FDB463E1DF396EE00FFC9AB /* LaunchScreen.storyboard */; };
 		4FDB464B1DF396EE00FFC9AB /* Fingertip_TackingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FDB464A1DF396EE00FFC9AB /* Fingertip_TackingTests.m */; };
 		4FDB46561DF396EE00FFC9AB /* Fingertip_TackingUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FDB46551DF396EE00FFC9AB /* Fingertip_TackingUITests.m */; };
@@ -36,8 +35,12 @@
 		6C5044821DF7E3FA006A24F9 /* b_cube.obj in Resources */ = {isa = PBXBuildFile; fileRef = 6C5044811DF7E3FA006A24F9 /* b_cube.obj */; };
 		6C5046091DF86449006A24F9 /* sphere.txt in Resources */ = {isa = PBXBuildFile; fileRef = 6C5046081DF86449006A24F9 /* sphere.txt */; };
 		6C50460B1DF86F59006A24F9 /* bunny.obj in Resources */ = {isa = PBXBuildFile; fileRef = 6C50460A1DF86F59006A24F9 /* bunny.obj */; };
-		6C50460D1DF87F02006A24F9 /* Aquarius.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C50460C1DF87F02006A24F9 /* Aquarius.png */; };
 		6C50460F1DF88EE8006A24F9 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C50460E1DF88EE8006A24F9 /* Launch Screen.storyboard */; };
+		6C5046131DF8E0C9006A24F9 /* p4.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C5046121DF8E0C9006A24F9 /* p4.png */; };
+		6C5046151DF8E25B006A24F9 /* p5.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C5046141DF8E25B006A24F9 /* p5.png */; };
+		6C5046171DF8E2E1006A24F9 /* p6.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C5046161DF8E2E1006A24F9 /* p6.png */; };
+		6C5046191DF8E3DC006A24F9 /* teapot.obj in Resources */ = {isa = PBXBuildFile; fileRef = 6C5046181DF8E3DC006A24F9 /* teapot.obj */; };
+		6C50461D1DF93908006A24F9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C50461C1DF93908006A24F9 /* Images.xcassets */; };
 		6CC1C8781DF72DA40036BFB7 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CC1C8771DF72DA40036BFB7 /* OpenGLES.framework */; };
 		6CC1C87A1DF72DAF0036BFB7 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CC1C8791DF72DAF0036BFB7 /* OpenGLES.framework */; };
 		6CC1C87E1DF74BA70036BFB7 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CC1C87D1DF74BA70036BFB7 /* GLKit.framework */; };
@@ -71,7 +74,6 @@
 		4FDB46361DF396ED00FFC9AB /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		4FDB46371DF396ED00FFC9AB /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
 		4FDB463A1DF396EE00FFC9AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		4FDB463C1DF396EE00FFC9AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4FDB463F1DF396EE00FFC9AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4FDB46411DF396EE00FFC9AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4FDB46461DF396EE00FFC9AB /* Fingertip TackingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Fingertip TackingTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -100,8 +102,12 @@
 		6C5044811DF7E3FA006A24F9 /* b_cube.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = b_cube.obj; sourceTree = "<group>"; };
 		6C5046081DF86449006A24F9 /* sphere.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sphere.txt; sourceTree = "<group>"; };
 		6C50460A1DF86F59006A24F9 /* bunny.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bunny.obj; sourceTree = "<group>"; };
-		6C50460C1DF87F02006A24F9 /* Aquarius.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Aquarius.png; sourceTree = "<group>"; };
 		6C50460E1DF88EE8006A24F9 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		6C5046121DF8E0C9006A24F9 /* p4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = p4.png; sourceTree = "<group>"; };
+		6C5046141DF8E25B006A24F9 /* p5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = p5.png; sourceTree = "<group>"; };
+		6C5046161DF8E2E1006A24F9 /* p6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = p6.png; sourceTree = "<group>"; };
+		6C5046181DF8E3DC006A24F9 /* teapot.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = teapot.obj; sourceTree = "<group>"; };
+		6C50461C1DF93908006A24F9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6CC1C8771DF72DA40036BFB7 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		6CC1C8791DF72DAF0036BFB7 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OpenGLES.framework; sourceTree = "<group>"; };
 		6CC1C87D1DF74BA70036BFB7 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
@@ -186,10 +192,10 @@
 				4FDB46371DF396ED00FFC9AB /* ViewController.mm */,
 				6C50460E1DF88EE8006A24F9 /* Launch Screen.storyboard */,
 				4FDB46391DF396EE00FFC9AB /* Main.storyboard */,
-				4FDB463C1DF396EE00FFC9AB /* Assets.xcassets */,
 				4FDB463E1DF396EE00FFC9AB /* LaunchScreen.storyboard */,
 				4FDB46411DF396EE00FFC9AB /* Info.plist */,
 				6C5046081DF86449006A24F9 /* sphere.txt */,
+				6C50461C1DF93908006A24F9 /* Images.xcassets */,
 				4FDB46301DF396ED00FFC9AB /* Supporting Files */,
 			);
 			path = "Fingertip Tacking";
@@ -198,7 +204,10 @@
 		4FDB46301DF396ED00FFC9AB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				6C50460C1DF87F02006A24F9 /* Aquarius.png */,
+				6C5046181DF8E3DC006A24F9 /* teapot.obj */,
+				6C5046161DF8E2E1006A24F9 /* p6.png */,
+				6C5046141DF8E25B006A24F9 /* p5.png */,
+				6C5046121DF8E0C9006A24F9 /* p4.png */,
 				6C50460A1DF86F59006A24F9 /* bunny.obj */,
 				6C5044811DF7E3FA006A24F9 /* b_cube.obj */,
 				6C5044771DF7DAC5006A24F9 /* bun_zipper.ply */,
@@ -352,18 +361,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C5046151DF8E25B006A24F9 /* p5.png in Resources */,
+				6C50461D1DF93908006A24F9 /* Images.xcassets in Resources */,
 				6C50446D1DF7ABB3006A24F9 /* earth_a1.png in Resources */,
 				4FDB46401DF396EE00FFC9AB /* LaunchScreen.storyboard in Resources */,
 				6C50460F1DF88EE8006A24F9 /* Launch Screen.storyboard in Resources */,
-				4FDB463D1DF396EE00FFC9AB /* Assets.xcassets in Resources */,
+				6C5046191DF8E3DC006A24F9 /* teapot.obj in Resources */,
+				6C5046131DF8E0C9006A24F9 /* p4.png in Resources */,
 				6C06D1EE1DF65715002F8643 /* Iris.png in Resources */,
 				6C5044721DF7B48E006A24F9 /* p1.png in Resources */,
 				6C5044751DF7B950006A24F9 /* p2.png in Resources */,
 				4FDB463B1DF396EE00FFC9AB /* Main.storyboard in Resources */,
 				6C5046091DF86449006A24F9 /* sphere.txt in Resources */,
 				6C50446F1DF7ABB3006A24F9 /* earth_a3.png in Resources */,
+				6C5046171DF8E2E1006A24F9 /* p6.png in Resources */,
 				6C5044761DF7B950006A24F9 /* p3.png in Resources */,
-				6C50460D1DF87F02006A24F9 /* Aquarius.png in Resources */,
 				6C50446E1DF7ABB3006A24F9 /* earth_a2.png in Resources */,
 				6C50460B1DF86F59006A24F9 /* bunny.obj in Resources */,
 				6C5044821DF7E3FA006A24F9 /* b_cube.obj in Resources */,
@@ -553,6 +565,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = JAZG4945VU;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -572,6 +585,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = JAZG4945VU;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (

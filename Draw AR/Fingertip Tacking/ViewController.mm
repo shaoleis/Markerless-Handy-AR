@@ -2,8 +2,8 @@
 //  ViewController.m
 //  Fingertip Tacking
 //
-//  Created by 刘淼 on 12/3/16.
-//  Copyright © 2016 刘淼. All rights reserved.
+//  Created by Miao Liu on 12/3/16.
+//  Copyright © 2016 Miao Liu. All rights reserved.
 //
 
 
@@ -23,6 +23,7 @@
 #include <sys/stat.h>
 #include <unistd.h>
 #include <string>
+#include "math.h"
 #endif
 
 @interface ViewController(){
@@ -33,6 +34,19 @@
     cv::Mat distCoeffs;
     std::vector< cv::Point3f > vertices;
     std::vector< cv::Point2i> lines;
+    int frame;
+    int zoom;
+    cv::Rect previousBox;
+    cv::vector<cv::KeyPoint> template_keypoints;
+    cv::Mat template_im, template_gray, template_copy;
+    cv::Mat template_descriptor;
+
+    cv::SurfFeatureDetector *detector_; // Set the SURF Detector
+    cv::SurfDescriptorExtractor *extractor_; // Set the SURF Extractor
+    std::vector<cv::Point2f> obj_corners;
+    std::vector<cv::Point> previouspoints;
+    std::vector<cv::Point> recordPts;
+    std::vector<cv::Point2f> proj_origin;  
 }
 @end
 
@@ -59,9 +73,6 @@
     int offset = (self.view.frame.size.height - view_height)/2;
     
     // Initial view
-//    UIImage *imageFromFile = [UIImage imageNamed: @"Iris.png"];
-//    UIImage *imageToDraw = [ViewController imageWithImage:imageFromFile scaledToSize:CGSizeMake(view_width, view_height)];
-//    imageView_ = [[UIImageView alloc] initWithImage:imageToDraw];
     imageView_ = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, offset, view_width, view_height)];
 
     //[imageView_ setContentMode:UIViewContentModeScaleAspectFill]; (does not work)
@@ -77,9 +88,7 @@
     self.videoCamera.rotateVideo = YES; // Rotate video so everything looks correct
     
     // Choose these depending on the camera input chosen
-    //self.videoCamera.defaultAVCaptureSessionPreset = AVCaptureSessionPreset352x288;
     self.videoCamera.defaultAVCaptureSessionPreset = AVCaptureSessionPreset640x480;
-    //self.videoCamera.defaultAVCaptureSessionPreset = AVCaptureSessionPreset1280x720;
     
     // Finally add the FPS text to the view
     fpsView_ = [[UITextView alloc] initWithFrame:CGRectMake(0,15,view_width,std::max(offset,35))];
@@ -89,8 +98,8 @@
     [fpsView_ setFont:[UIFont systemFontOfSize:18]]; // Set the Font size
     [self.view addSubview:fpsView_];
     
-    
-    // For AR
+    // AR
+    // Intrinsic matrix and distortion coefficients
     intrinsics = cv::Mat::zeros(3,3,CV_64F);
     intrinsics.at<double>(0,0) = 2871.8995;
     intrinsics.at<double>(1,1) = 2871.8995;
@@ -104,11 +113,12 @@
     distCoeffs.at<double>(3) = 0;
     distCoeffs.at<double>(4) = 0;
     
-    // load file
+    // load obj file
     NSString *str = [[NSBundle mainBundle] pathForResource:@"bunny" ofType:@"obj"];
     const char *fileName = [str UTF8String]; // Convert to const char *
     bool res = loadOBJ(fileName, vertices, lines);
 
+    // start camera
     [videoCamera start];
 
 }
@@ -116,173 +126,175 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-    
-    
-    //delete brisk;
 }
 
 // Function to run apply image on
 - (void) processImage:(cv:: Mat &)image
 {
-//    std::vector<cv::Point> validPoints;
-//    validPoints = Tracking(image);
-//    for (size_t i = 0; i < validPoints.size(); i++)
-//    {
-//        cv::circle(image, validPoints[i], 9, cv::Scalar(0, 255, 0), 2);
-//    }
+    // calculate hand bounding box
+    std::vector<cv::Point> validPoints;
+    cv::Rect boundingBox;
+    validPoints = Tracking(image, boundingBox);
+    std::vector<cv::Point2f> output;
+
+ #ifdef DEBUG   
+    for (size_t i = 0; i < previouspoints.size(); i++)
+    {
+        cv::circle(image, previouspoints[i], 9, cv::Scalar(0, 0, 255), 2);
+    }
+#endif
+
+    for (size_t i = 0; i < validPoints.size() - 2; i++)
+    {
+        if (previouspoints.size()>0)
+        {
+            if (Edist(validPoints[i].x, validPoints[i].y, previouspoints[i].x, previouspoints[i].y) <200)
+            {
+                validPoints[i] =previouspoints[i];
+            }
+        }
+        #ifdef DEBUG
+            cv::circle(image, validPoints[i], 9, cv::Scalar(0, 255, 0), 2);
+        #endif
+    }
+
+    previouspoints = validPoints;
+    previouspoints.pop_back();
+    previouspoints.pop_back();
+    size_t last = validPoints.size();
+    int width = validPoints[last-1].x;
+    int height = validPoints[last-1].y;
+    double cornerX = validPoints[last-2].x;
+    double cornerY = validPoints[last-2].y;
+    cv::Point center;
+    boundingBox.x = cornerX;
+    boundingBox.y = cornerY;
+    boundingBox.width = width;
+    boundingBox.height = height;
+    center.x = cornerX + width/2;
+    center.y = cornerY + height/2;
+    previousBox = boundingBox;
+    
     
     // Add AR
-    cv::Mat image_copy;
-    cvtColor(image, image_copy, CV_BGRA2BGR);
-    
-    cv::Mat rvec, tvec;
-    std::vector<cv::Point3f> proj_corners(4); // realPos with z=0
-    std::vector<cv::Point2f> scene_proj_corners(4);
-    std::vector<cv::Point2f> scene_corners(4); // calculated from realPos, using Homography
-    
-    // template_im i.e. real object positions, assume now,
-    // replace with hand bounding box later
-    std::vector<cv::Point> realPos(4);
-    realPos[0] = cvPoint( 0,  0);
-    realPos[1] = cvPoint(200,  0);
-    realPos[2] = cvPoint(200, 100);
-    realPos[3] = cvPoint( 0, 100);
-    
 
-    
-    float x = 12.0*3;
-    float y = 38.5*3;
-    float w = 20*3;
-    float h = -20.0*3;
-    
-    for (int i = 0; i < 4; i++) {
-        proj_corners[i] = cv::Point3f(realPos[i].x, realPos[i].y, 0);
+    // draw final AR
+    double scale = 0.5;
+    if (validPoints.size() > 2) {
+        output = draw_Pred_Coordinate(image,boundingBox,validPoints,0,zoom);
+        //draw
+        //[self drawCube:image:output:scale];
+        [self drawBunny: image:output:scale];
+        if (zoom > 20) {
+            scale = 0.6;
+        } else {
+            scale = 0.5;
+        }
+    } else {
+        zoom++;
     }
+    if (zoom > 50) {
+        zoom = 0;
+    }
+    //printf("zoom %d\n",zoom);
+}
+
+/*
+ drawCube function:
+ image: image view, draw AR on it.
+ info : info[0]: x axis point; info[1]: y; info[2]:z; info[3]:center
+ scale: scale to draw the object
+ */
+- (void) drawCube: (cv::Mat &) image: (std::vector<cv::Point2f>) info: (double) scale
+{
+    cv::Mat rvec, tvec; // rotation vector, translation vector
+    std::vector<cv::Point3f> proj_corners(4);
+    std::vector<cv::Point2f> scene_corners(4); 
     
-    // calculated from realPos, using Homography
-    scene_corners[0] = cv::Point2f(43,360);
-    scene_corners[1] = cv::Point2f(353,419);
-    scene_corners[2] = cv::Point2f(371,291);
-    scene_corners[3] = cv::Point2f(137,262);
+    // used to define cube 3d positions
+    float w = 60;
     
+    // absolute coordinates
+    proj_corners[0] = cv::Point3f(1,0,0);
+    proj_corners[1] = cv::Point3f(0,1,0);
+    proj_corners[2] = cv::Point3f(0,0,1);
+    proj_corners[3] = cv::Point3f(0,0,0);
     
-    //either solve with scene_corners or estPts
+    // coordinates on the camera scene
+    scene_corners = info;
+
+    // sove for rvec and tvec
     cv::solvePnP(proj_corners, scene_corners, intrinsics, distCoeffs, rvec, tvec);
-    
-    std::vector<cv::Point3f> cube_corners(8);
+
     //real cube pos in 3D
-    cube_corners[0] = cv::Point3f(x + w, y, h);
-    cube_corners[1] = cv::Point3f(x + w, y, h-w );
-    cube_corners[2] = cv::Point3f(x + w, y + w, h-w );
-    cube_corners[3] = cv::Point3f(x + w, y + w, h );
-    cube_corners[4] = cv::Point3f(x + w + w, y, h);
-    cube_corners[5] = cv::Point3f(x + w + w, y, h-w );
-    cube_corners[6] = cv::Point3f(x + w + w, y + w, h-w );
-    cube_corners[7] = cv::Point3f(x + w + w, y + w, h );
-    
+    std::vector<cv::Point3f> cube_corners(8);
+    cube_corners[0] = cv::Point3f(-scale/2, -scale/2, scale/2);
+    cube_corners[1] = cv::Point3f(-scale/2, -scale/2, -scale/2);
+    cube_corners[2] = cv::Point3f(-scale/2, scale/2, -scale/2);
+    cube_corners[3] = cv::Point3f(-scale/2, scale/2, scale/2);
+    cube_corners[4] = cv::Point3f(scale/2, -scale/2, scale/2);
+    cube_corners[5] = cv::Point3f(scale/2, -scale/2, -scale/2);
+    cube_corners[6] = cv::Point3f(scale/2, scale/2, -scale/2);
+    cube_corners[7] = cv::Point3f(scale/2, scale/2, scale/2);
+
+    // project cube to scene
     std::vector<cv::Point2f> cube_proj_corners;
     cv::projectPoints(cube_corners, rvec, tvec, intrinsics, distCoeffs, cube_proj_corners);
-    cv::projectPoints(proj_corners, rvec, tvec, intrinsics, distCoeffs, scene_proj_corners);
-    
-    // Draw lines of projected realPos
-    cv::line( image, scene_proj_corners[0], scene_proj_corners[1], cv::Scalar(255, 0, 0), 1 );
-    cv::line( image, scene_proj_corners[1], scene_proj_corners[2], cv::Scalar(255, 0, 255), 1 );
-    cv::line( image, scene_proj_corners[2], scene_proj_corners[3], cv::Scalar(255, 0, 0), 1 );
-    cv::line( image, scene_proj_corners[3], scene_proj_corners[0], cv::Scalar(255, 0, 255), 1 );
-    
+       
     // patch size is the same for cube
     cv::Rect patch(0,0,w,w);
-    [self drawCube:image:cube_proj_corners:patch];
-    [self drawBunny: image: rvec: tvec];
     
-}
-
-void drawCoordinate(cv::Mat &image,std::vector<cv::Point> validPoints,std::vector<cv::Point2f> proj_origin) {
-    if (validPoints.size() == 5) {
-        cv::Mat intrinsics;
-        cv::Mat distCoeffs;
-        cv::Mat rvec,tvec;
-        std::vector<cv::Point3f> origin(4);
-        origin[0] = cv::Point3f(7,7,1);
-        origin[1] = cv::Point3f(15,7,1);
-        origin[2] = cv::Point3f(7,15,1);
-        origin[3] = cv::Point3f(7,7,8);
-        std::vector<cv::Point3f> objpts(5);
-        std::vector<cv::Point2f> imgpts(5);
-        std::vector<cv::Point2f> proj_origin;
-        objpts[0] = cv::Point3f(15.2,7.0,1);
-        objpts[1] = cv::Point3f(12.1,14.7,1);
-        objpts[2] = cv::Point3f(7.5,16.5,1);
-        objpts[3] = cv::Point3f(4.1,15.8,1);
-        objpts[4] = cv::Point3f(0,12,1);
-        imgpts[0] = cv::Point2f(validPoints.at(0).x,validPoints.at(0).y);
-        imgpts[1] = cv::Point2f(validPoints.at(1).x,validPoints.at(1).y);
-        imgpts[2] = cv::Point2f(validPoints.at(2).x,validPoints.at(2).y);
-        imgpts[3] = cv::Point2f(validPoints.at(3).x,validPoints.at(3).y);
-        imgpts[4] = cv::Point2f(validPoints.at(4).x,validPoints.at(4).y);
-        intrinsics = cv::Mat::zeros(3,3,CV_64F);
-        intrinsics.at<double>(0,0) = 2871.8995;
-        intrinsics.at<double>(1,1) = 2871.8995;
-        intrinsics.at<double>(2,2) = 1;
-        intrinsics.at<double>(0,2) = 1631.5;
-        intrinsics.at<double>(1,2) = 1223.5;
-        distCoeffs = cv::Mat(5,1,cv::DataType<double>::type);
-        distCoeffs.at<double>(0) = -.0008211;
-        distCoeffs.at<double>(1) = 0.640757;
-        distCoeffs.at<double>(2) = 0;
-        distCoeffs.at<double>(3) = 0;
-        distCoeffs.at<double>(4) = -1.7248;
-        cv::solvePnP(objpts, imgpts, intrinsics,distCoeffs,rvec,tvec);
-        cv::projectPoints(origin, rvec, tvec, intrinsics, distCoeffs,proj_origin);
-        cv::arrowedLine(image, proj_origin[0], proj_origin[1], cv::Scalar(255, 0, 255), 1);
-        cv::arrowedLine(image, proj_origin[0], proj_origin[2], cv::Scalar(0, 0, 255), 1);
-        cv::arrowedLine(image, proj_origin[0], proj_origin[3], cv::Scalar(0, 255, 0), 1);
-        cv::circle(image,proj_origin[0],9, cv::Scalar(255, 0, 0), 2);
-    } 
-}
-
-- (void) drawCube: (cv::Mat &) image: (std::vector<cv::Point2f>) cube_proj_corners: (cv::Rect) patch
-{
+    // draw patch
     int seq1[] = {0,4,3,7};
     [self helperDrawCube:image :@"p1.png" :cube_proj_corners :patch: seq1];
     int seq2[] = {1,5,0,4};
     [self helperDrawCube:image :@"p2.png" :cube_proj_corners :patch: seq2];
     int seq3[] = {4,5,7,6};
     [self helperDrawCube:image :@"p3.png" :cube_proj_corners :patch: seq3];
-    
+    int seq4[] = {1,0,2,3};
+    [self helperDrawCube:image :@"p4.png" :cube_proj_corners :patch: seq4];
+    int seq5[] = {3,7,2,6};
+    [self helperDrawCube:image :@"p5.png" :cube_proj_corners :patch: seq5];
+    int seq6[] = {2,6,1,5};
+    [self helperDrawCube:image :@"p6.png" :cube_proj_corners :patch: seq6];
 
 #ifdef DEBUG
-    for (int i = 0; i < 8; i++) {
-        std::cout<<cube_proj_corners[i]<<std::endl;
-        cv::circle(image, cube_proj_corners[i], 10, cv::Scalar(255, 0, 255));
-    }
+   for (int i = 0; i < 8; i++) {
+       std::cout<<cube_proj_corners[i]<<std::endl;
+       cv::circle(image, cube_proj_corners[i], 10, cv::Scalar(255, 0, 255));
+   }
 
-    // draw wireframe
-    for (int i=0; i<5; i+=4) {
-        
-        cv::line(image, cube_proj_corners[0+i], cube_proj_corners[1+i], cv::Scalar(255, 0, 255), 1);
-        cv::line(image, cube_proj_corners[1+i], cube_proj_corners[2+i], cv::Scalar(0, 0, 255), 1);
-        cv::line(image, cube_proj_corners[2+i], cube_proj_corners[3+i], cv::Scalar(0, 0, 255), 1);
-        cv::line(image, cube_proj_corners[3+i], cube_proj_corners[0+i], cv::Scalar(0, 0, 255), 1);
-    }
-    
-    cv::line(image, cube_proj_corners[0], cube_proj_corners[4], cv::Scalar(0, 0, 255), 1);
-    cv::line(image, cube_proj_corners[1], cube_proj_corners[5], cv::Scalar(0, 0, 255), 1);
-    cv::line(image, cube_proj_corners[2], cube_proj_corners[6], cv::Scalar(0, 0, 255), 1);
-    cv::line(image, cube_proj_corners[3], cube_proj_corners[7], cv::Scalar(0, 0, 255), 1);
+   // draw wireframe
+   for (int i=0; i<5; i+=4) {
+       
+       cv::line(image, cube_proj_corners[0+i], cube_proj_corners[1+i], cv::Scalar(255, 0, 255), 1);
+       cv::line(image, cube_proj_corners[1+i], cube_proj_corners[2+i], cv::Scalar(0, 0, 255), 1);
+       cv::line(image, cube_proj_corners[2+i], cube_proj_corners[3+i], cv::Scalar(0, 0, 255), 1);
+       cv::line(image, cube_proj_corners[3+i], cube_proj_corners[0+i], cv::Scalar(0, 0, 255), 1);
+   }
+   
+   cv::line(image, cube_proj_corners[0], cube_proj_corners[4], cv::Scalar(0, 0, 255), 1);
+   cv::line(image, cube_proj_corners[1], cube_proj_corners[5], cv::Scalar(0, 0, 255), 1);
+   cv::line(image, cube_proj_corners[2], cube_proj_corners[6], cv::Scalar(0, 0, 255), 1);
+   cv::line(image, cube_proj_corners[3], cube_proj_corners[7], cv::Scalar(0, 0, 255), 1);
 #endif
     
 }
 
+// helper function to draw patch on the cube
 -(void)helperDrawCube:(cv::Mat &) image: (NSString *)file: (std::vector<cv::Point2f>) cube_proj_corners:(cv::Rect) patch: (int []) seq {
     UIImage *imageToDraw = [UIImage imageNamed: file];
     cv::Mat matImageToDraw = [self cvMatFromUIImage:imageToDraw];
     cv::Mat temp, temp2;
     cv::resize(matImageToDraw, temp, cv::Size(patch.width, patch.height));
+
+    // try to improve resolution
     for (int i=0;i<3;i++) {
         cv::GaussianBlur(temp, temp2, cv::Size(0, 0), 3);
         cv::addWeighted(temp, 1.5, temp2, -0.5, 0, temp);
     }
+
+    // draw patch
     cv::Mat patchToDraw = cv::Mat(temp, patch).clone();
     std::vector<cv::Point2f> p_proj(4);
     std::vector<cv::Point2f> p_pts(4);
@@ -295,39 +307,46 @@ void drawCoordinate(cv::Mat &image,std::vector<cv::Point> validPoints,std::vecto
     p_proj[3] = cube_proj_corners[seq[3]];
     p_pts[3] = cv::Point2f(patchToDraw.cols, patchToDraw.rows);
     
-    // draw patch
+    
     cv::cvtColor(patchToDraw, patchToDraw, CV_BGR2BGRA);
     overlay_image(image, patchToDraw, p_pts, p_proj);
 
 }
 
+/*
+draw model from obj file, not restrict to stanford bunny
+*/
+- (void) drawBunny:(cv::Mat &) image: (std::vector<cv::Point2f>) info: (double) scale {
+    std::vector<cv::Point2f> obj_pts;
+    cv::Mat rvec, tvec; // rotation vector, translation vector
+    std::vector<cv::Point3f> proj_corners(4);
+    std::vector<cv::Point2f> scene_corners(4);
+    
+    proj_corners[0] = cv::Point3f(1,0,0);
+    proj_corners[1] = cv::Point3f(0,1,0);
+    proj_corners[2] = cv::Point3f(0,0,1);
+    proj_corners[3] = cv::Point3f(0,0,0);
+    
+    scene_corners = info;
+    cv::solvePnP(proj_corners, scene_corners, intrinsics, distCoeffs, rvec, tvec);
+    cv::projectPoints(vertices, rvec, tvec, intrinsics, distCoeffs, obj_pts);
+    
+    // set color BGR
+    const cv::Scalar pts_clr = cv::Scalar(0,255,0);
 
-- (void) drawBunny: (cv::Mat &) image: (cv::Mat)rvec: (cv::Mat)tvec {
-        std::vector<cv::Point2f> obj_pts;
-        cv::projectPoints(vertices, rvec, tvec, intrinsics, distCoeffs, obj_pts);
-    
-        // set color BGR
-        const cv::Scalar pts_clr = cv::Scalar(255,0,0);
-    
-        // draw points
-        for(int i=0; i<obj_pts.size(); i++) {
-            cv::circle(image, obj_pts[i], 0.5, pts_clr, 0); // Draw the points
-        }
-        std::cout << obj_pts.size() << std::endl;
-    
-//        // draw lines
-//        for (int i=0; i<lines.size(); i++) {
-//            cv::line(image, obj_pts[lines[i].x], obj_pts[lines[i].y], pts_clr);
-//        }
+    // draw points
+    for(int i=0; i<obj_pts.size(); i++) {
+        cv::circle(image, obj_pts[i], 1, pts_clr, 0); // Draw the points
+    }
+    // std::cout << obj_pts.size() << std::endl;  
 }
 
-
-
-bool loadOBJ(
-             const char * path,
+/*
+helper function to load obj file.
+*/
+bool loadOBJ(const char * path,
              std::vector < cv::Point3f > & out_vertices,
-             std::vector < cv::Point2i> & lines
-             ){
+             std::vector < cv::Point2i> & lines ){
     std::vector< unsigned int > vertexIndices, uvIndices, normalIndices;
     std::vector< cv::Point3f > temp_vertices;
     std::vector< cv::Point2f > temp_uvs;
@@ -335,13 +354,13 @@ bool loadOBJ(
     
     FILE * file = std::fopen(path, "r");
     if( file == NULL ){
-        printf("Impossible to open the file !\n");
+        printf("Cannot open the file !\n");
         return false;
     }
     
     while( 1 ){
-        
         char lineHeader[128];
+
         // read the first word of the line
         int res = fscanf(file, "%s", lineHeader);
         if (res == EOF)
@@ -362,14 +381,20 @@ bool loadOBJ(
         }
     }
     
-    // For each vertex of each triangle
+    // For different model, need to change scale
     for( unsigned int i=0; i<temp_vertices.size(); i++ ){
-        cv::Point3f vertex = (temp_vertices[ i ] + cv::Point3f(0.1,0.1,0.1))*500;
+        // for bunny
+        cv::Point3f vertex = temp_vertices[ i ]*8;
+//        // for teapot
+//        cv::Point3f vertex = temp_vertices[ i ]*0.2;
         out_vertices.push_back(vertex);
     }
     return true;
 }
 
+/*
+helper function to overlay patch to cube
+*/
 void overlay_image(cv::Mat image, cv::Mat square, std::vector<cv::Point2f> sq_pts, std::vector<cv::Point2f> sq_proj){
     cv::Point2f x = sq_proj[1] - sq_proj[0];
     cv::Point2f y = sq_proj[2] - sq_proj[0];
@@ -429,6 +454,43 @@ void overlay_image(cv::Mat image, cv::Mat square, std::vector<cv::Point2f> sq_pt
     UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return newImage;
+}
+
+-(UIImage *)UIImageFromCVMat:(cv::Mat)cvMat
+{
+    NSData *data = [NSData dataWithBytes:cvMat.data length:cvMat.elemSize()*cvMat.total()];
+    CGColorSpaceRef colorSpace;
+    
+    if (cvMat.elemSize() == 1) {
+        colorSpace = CGColorSpaceCreateDeviceGray();
+    } else {
+        colorSpace = CGColorSpaceCreateDeviceRGB();
+    }
+    
+    CGDataProviderRef provider = CGDataProviderCreateWithCFData((__bridge CFDataRef)data);
+    
+    // Creating CGImage from cv::Mat
+    CGImageRef imageRef = CGImageCreate(cvMat.cols,                                 //width
+                                        cvMat.rows,                                 //height
+                                        8,                                          //bits per component
+                                        8 * cvMat.elemSize(),                       //bits per pixel
+                                        cvMat.step[0],                            //bytesPerRow
+                                        colorSpace,                                 //colorspace
+                                        kCGImageAlphaNone|kCGBitmapByteOrderDefault,// bitmap info
+                                        provider,                                   //CGDataProviderRef
+                                        NULL,                                       //decode
+                                        false,                                      //should interpolate
+                                        kCGRenderingIntentDefault                   //intent
+                                        );
+    
+    
+    // Getting UIImage from CGImage
+    UIImage *finalImage = [UIImage imageWithCGImage:imageRef];
+    CGImageRelease(imageRef);
+    CGDataProviderRelease(provider);
+    CGColorSpaceRelease(colorSpace);
+    
+    return finalImage;
 }
 
 @end
