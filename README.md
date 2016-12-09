@@ -1,5 +1,5 @@
-# MarkerlessAR
-####Advanced CV App final project
+# Markerless Handy AR
+#### Carnegie Mellon 16-623 Advanced CV App final project
 ## Timeline Table
 |Timeline| Task  | Name
 |:-:|:-:|:-:|
